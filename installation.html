@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OpenRF Platform - Installation Guide</title>
+<style>
+body{font-family:Arial,sans-serif;max-width:980px;margin:40px auto;padding:0 20px;line-height:1.7;color:#222}
+h1,h2,h3{color:#0b5cad}
+.cards{display:flex;gap:20px;flex-wrap:wrap}
+.card{flex:1;min-width:280px;border:1px solid #ddd;border-radius:8px;padding:18px;background:#fafafa}
+.box{background:#eef7ff;border-left:4px solid #0b5cad;padding:15px;margin:18px 0}
+table{border-collapse:collapse;width:100%}
+th,td{border:1px solid #ddd;padding:10px}
+th{background:#f5f5f5}
+code{background:#f3f3f3;padding:2px 4px}
+</style>
+</head>
+<body>
+<h1>Installation Guide</h1>
+
+<p>Welcome to <strong>OpenRF Platform</strong>. Choose the installation method that best matches your needs.</p>
+
+<div class="cards">
+<div class="card">
+<h2>🧑‍💻 Source Code</h2>
+<p><strong>Best for:</strong> Developers and contributors.</p>
+<p><strong>Download:</strong> OpenRF-Platform-v1.0.0.zip</p>
+<ul>
+<li>Modify the source code</li>
+<li>Compile with PlatformIO</li>
+<li>Build your own firmware</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>⚡ Precompiled Firmware</h2>
+<p><strong>Best for:</strong> Most users.</p>
+<p><strong>Downloads:</strong> firmware.bin + littlefs.bin</p>
+<ul>
+<li>No compiling required</li>
+<li>Ready to flash</li>
+<li>Quick installation</li>
+</ul>
+</div>
+</div>
+
+<h2>Installing from Source Code</h2>
+<ol>
+<li>Download and extract the source package.</li>
+<li>Open the project in Visual Studio Code with PlatformIO.</li>
+<li>Build the project.</li>
+<li>Upload the firmware.</li>
+<li>Build and upload the LittleFS filesystem.</li>
+<li>Restart the ESP8266.</li>
+</ol>
+
+<h2>Installing Precompiled Firmware</h2>
+
+<h3>What is firmware.bin?</h3>
+<p><strong>firmware.bin</strong> is the operating software of OpenRF Platform. It contains the RF communication, Wi-Fi, MQTT, Home Assistant integration, OTA support and all platform features. Without this file the device cannot start.</p>
+
+<h3>What is littlefs.bin?</h3>
+<p><strong>littlefs.bin</strong> is the internal filesystem that stores the built-in web interface.</p>
+
+<p>It contains:</p>
+<ul>
+<li>Configuration pages</li>
+<li>HTML</li>
+<li>CSS</li>
+<li>JavaScript</li>
+<li>Images and icons</li>
+</ul>
+
+<div class="box">
+Think of <strong>firmware.bin</strong> as the operating system of OpenRF Platform and <strong>littlefs.bin</strong> as the website stored inside the device.
+<br><br>
+Without <strong>littlefs.bin</strong> the ESP8266 will still operate normally, including RF communication, MQTT and Home Assistant integration, but the configuration website will not be available.
+</div>
+
+<h2>First Installation</h2>
+<ol>
+<li>Flash <strong>firmware.bin</strong>.</li>
+<li>Flash <strong>littlefs.bin</strong>.</li>
+<li>Restart the ESP8266.</li>
+<li>If no Wi-Fi credentials are configured, the device starts in <strong>Access Point (AP)</strong> mode.</li>
+<li>Connect to the <strong>OpenRF Platform</strong> Wi-Fi network.</li>
+<li>Open the web interface and complete the initial configuration.</li>
+</ol>
+
+<h2>Updating</h2>
+<div class="box">
+<strong>First installation?</strong><br>
+Flash <strong>firmware.bin</strong> + <strong>littlefs.bin</strong>.
+<br><br>
+<strong>Already using OpenRF Platform?</strong><br>
+If the release notes mention WebUI, HTML, CSS, JavaScript or LittleFS changes, flash <strong>both</strong> files.<br>
+Otherwise, flash <strong>firmware.bin</strong> only.
+</div>
+
+<h2>Version Compatibility</h2>
+<table>
+<tr><th>Correct</th><th>Incorrect</th></tr>
+<tr><td>firmware.bin v1.0.0<br>littlefs.bin v1.0.0</td><td>firmware.bin v1.1.0<br>littlefs.bin v1.0.0</td></tr>
+</table>
+
+<h2>Quick Start</h2>
+<ul>
+<li><strong>I just want to use OpenRF Platform</strong> → Download <strong>firmware.bin</strong> and <strong>littlefs.bin</strong>.</li>
+<li><strong>I want to develop OpenRF Platform</strong> → Download <strong>OpenRF-Platform-v1.0.0.zip</strong>.</li>
+</ul>
+
+</body></html>

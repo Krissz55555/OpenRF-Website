@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="OpenRF Community Hub — discussions, questions, development ideas and maker stories.">
+  <meta name="theme-color" content="#07111f">
+  <title>Community Hub — OpenRF Platform</title>
+  <link rel="icon" href="assets/openrf-platform-mark.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="OpenRF Platform home">
+      <img src="assets/openrf-platform-mark.png" alt="" width="42" height="42">
+      <span><strong>OpenRF</strong><small>Platform</small></span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu">☰</button>
+    <nav class="nav" id="mainNav">
+      <a data-en="Home" data-hu="Főoldal" href="index.html">Home</a>
+      <a class="active-nav" data-en="Community Hub" data-hu="Közösségi központ" href="community.html">Community Hub</a>
+      <a data-en="Showcase" data-hu="Projektek" href="index.html#showcase">Showcase</a>
+      <a data-en="Documentation" data-hu="Dokumentáció" href="index.html#documentation">Documentation</a>
+      <a data-en="Downloads" data-hu="Letöltések" href="index.html#downloads">Downloads</a>
+          <a class="github-nav" href="https://github.com/Krissz55555/OpenRF-Platform" target="_blank" rel="noopener">GitHub ↗</a>
+    </nav>
+    <div class="auth-control" id="authControl">
+      <a class="github-login" id="githubLogin" href="/api/auth/github/start" data-en="Sign in with GitHub" data-hu="Belépés GitHubbal">Sign in with GitHub</a>
+      <div class="user-menu" id="userMenu" hidden><img id="userAvatar" alt=""><span id="userName"></span><button id="logoutButton" type="button" data-en="Sign out" data-hu="Kilépés">Sign out</button></div>
+    </div>
+    <button class="lang-toggle" id="langToggle" type="button" aria-label="Change language"><span class="active">EN</span><span>HU</span></button>
+  </header>
+
+  <main class="community-page">
+    <section class="community-hero section-shell">
+      <span class="section-kicker" data-en="OpenRF Community Hub" data-hu="OpenRF Közösségi központ">OpenRF Community Hub</span>
+      <h1 data-en="Ideas become features here." data-hu="Itt lesznek az ötletekből funkciók.">Ideas become features here.</h1>
+      <p data-en="Ask questions, start discussions, propose development ideas and share the story behind your build. Every useful contribution moves OpenRF forward." data-hu="Kérdezz, indíts beszélgetést, javasolj fejlesztési ötletet, vagy oszd meg a saját építésed történetét. Minden hasznos hozzájárulás előrébb viszi az OpenRF-et.">Ask questions, start discussions, propose development ideas and share the story behind your build. Every useful contribution moves OpenRF forward.</p>
+      <div class="community-principles">
+        <span data-en="Ask openly" data-hu="Kérdezz bátran">Ask openly</span>
+        <span data-en="Help constructively" data-hu="Segíts építően">Help constructively</span>
+        <span data-en="Share what you learn" data-hu="Oszd meg, amit tanultál">Share what you learn</span>
+      </div>
+    </section>
+
+    <section class="section-shell community-workspace">
+      <div class="hub-tabs" role="tablist" aria-label="Community sections">
+        <button class="hub-tab active" data-tab="discussions" type="button"><span>💬</span><b data-en="Discussions" data-hu="Beszélgetések">Discussions</b></button>
+        <button class="hub-tab" data-tab="questions" type="button"><span>❓</span><b data-en="Questions" data-hu="Kérdések">Questions</b></button>
+        <button class="hub-tab" data-tab="ideas" type="button"><span>💡</span><b data-en="Ideas" data-hu="Ötletek">Ideas</b></button>
+        <button class="hub-tab" data-tab="stories" type="button"><span>📖</span><b data-en="Stories" data-hu="Történetek">Stories</b></button>
+      </div>
+
+      <div class="hub-toolbar">
+        <div class="hub-search-wrap">
+          <span>⌕</span>
+          <input id="hubSearch" type="search" data-placeholder-en="Search the Community Hub…" data-placeholder-hu="Keresés a közösségi központban…" placeholder="Search the Community Hub…">
+        </div>
+        <div class="hub-actions"><span class="auth-hint" id="authHint" data-en="Sign in to post, reply or vote" data-hu="Íráshoz, válaszhoz és szavazáshoz jelentkezz be">Sign in to post, reply or vote</span><span class="backend-status" id="backendStatus" data-en="Connecting…" data-hu="Kapcsolódás…">Connecting…</span><button class="button primary" id="openComposer" type="button" data-en="Create post" data-hu="Új bejegyzés">Create post</button></div>
+      </div>
+
+      <div class="hub-layout">
+        <div>
+          <section class="hub-panel active" data-panel="discussions">
+            <div class="panel-heading"><div><small data-en="Open conversations" data-hu="Nyitott beszélgetések">Open conversations</small><h2 data-en="Discussions" data-hu="Beszélgetések">Discussions</h2></div><span class="content-count" id="discussionCount">0</span></div>
+            <div class="post-list" id="discussionList"></div>
+          </section>
+
+          <section class="hub-panel" data-panel="questions">
+            <div class="panel-heading"><div><small data-en="Ask. Answer. Document." data-hu="Kérdezz. Válaszolj. Dokumentálj.">Ask. Answer. Document.</small><h2 data-en="Questions & Answers" data-hu="Kérdések és válaszok">Questions & Answers</h2></div><span class="content-count" id="questionCount">0</span></div>
+            <div class="post-list" id="questionList"></div>
+          </section>
+
+          <section class="hub-panel" data-panel="ideas">
+            <div class="panel-heading"><div><small data-en="Community-driven development" data-hu="Közösség által formált fejlesztés">Community-driven development</small><h2 data-en="Development Ideas" data-hu="Fejlesztési ötletek">Development Ideas</h2></div><span class="content-count" id="ideaCount">0</span></div>
+            <div class="idea-explainer" data-en="Vote for the ideas that would make OpenRF more useful. Status labels show how each proposal relates to the roadmap." data-hu="Szavazz azokra az ötletekre, amelyek hasznosabbá tennék az OpenRF-et. A státuszjelölések megmutatják, hogyan kapcsolódik az adott javaslat a fejlesztési tervhez.">Vote for the ideas that would make OpenRF more useful. Status labels show how each proposal relates to the roadmap.</div>
+            <div class="post-list" id="ideaList"></div>
+          </section>
+
+          <section class="hub-panel" data-panel="stories">
+            <div class="panel-heading"><div><small data-en="The people and problems behind the builds" data-hu="Az építések mögötti emberek és problémák">The people and problems behind the builds</small><h2 data-en="Maker Stories" data-hu="Maker történetek">Maker Stories</h2></div><span class="content-count" id="storyCount">0</span></div>
+            <div class="post-list" id="storyList"></div>
+          </section>
+        </div>
+
+        <aside class="hub-sidebar">
+          <article class="sidebar-card">
+            <h3 data-en="Community guidelines" data-hu="Közösségi irányelvek">Community guidelines</h3>
+            <ol>
+              <li data-en="Be clear and respectful." data-hu="Fogalmazz érthetően és tisztelettel.">Be clear and respectful.</li>
+              <li data-en="Add hardware and firmware details." data-hu="Írd le a hardvert és a firmware-verziót.">Add hardware and firmware details.</li>
+              <li data-en="Share solutions, not only problems." data-hu="A megoldást is oszd meg, ne csak a problémát.">Share solutions, not only problems.</li>
+              <li data-en="Search before opening a duplicate topic." data-hu="Új téma előtt keress rá a meglévőkre.">Search before opening a duplicate topic.</li>
+            </ol>
+          </article>
+          <article class="sidebar-card">
+            <h3 data-en="Idea statuses" data-hu="Ötletstátuszok">Idea statuses</h3>
+            <div class="status-legend"><span class="status-badge review" data-en="Under review" data-hu="Vizsgálat alatt">Under review</span><span class="status-badge planned" data-en="Planned" data-hu="Tervezett">Planned</span><span class="status-badge progress" data-en="In progress" data-hu="Folyamatban">In progress</span><span class="status-badge released" data-en="Released" data-hu="Kiadva">Released</span></div>
+          </article>
+          <article class="sidebar-card origin-card">
+            <span>🏊</span>
+            <h3 data-en="From pool light to platform" data-hu="A medencelámpától a platformig">From pool light to platform</h3>
+            <p data-en="Read the real-world story that started OpenRF Platform." data-hu="Olvasd el azt a valós történetet, amelyből az OpenRF Platform megszületett.">Read the real-world story that started OpenRF Platform.</p>
+            <button class="text-link story-jump" type="button" data-en="Open the story →" data-hu="Történet megnyitása →">Open the story →</button>
+          </article>
+          <p class="hub-beta-note" data-en="v1.4 GitHub Edition: posts, replies and idea votes are stored in the shared Cloudflare D1 database when the backend is connected. The interface automatically falls back to browser-local test mode if the API is unavailable." data-hu="v1.4 GitHub Edition: a bejegyzéseket, válaszokat és ötletszavazatokat a közös Cloudflare D1 adatbázis tárolja, amikor a háttérrendszer csatlakoztatva van. Ha az API nem érhető el, a felület automatikusan böngészőn belüli tesztmódra vált.">v1.4 GitHub Edition: posts, replies and idea votes are stored in the shared Cloudflare D1 database when the backend is connected. The interface automatically falls back to browser-local test mode if the API is unavailable.</p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal-backdrop" id="composerModal" hidden>
+    <section class="composer-modal" role="dialog" aria-modal="true" aria-labelledby="composerTitle">
+      <button class="modal-close" id="closeComposer" type="button" aria-label="Close">×</button>
+      <span class="section-kicker" data-en="Community contribution" data-hu="Közösségi hozzájárulás">Community contribution</span>
+      <h2 id="composerTitle" data-en="Create a new post" data-hu="Új bejegyzés létrehozása">Create a new post</h2>
+      <form id="communityForm">
+        <label><span data-en="Section" data-hu="Típus">Section</span><select id="postType" required><option value="discussions" data-en="Discussion" data-hu="Beszélgetés">Discussion</option><option value="questions" data-en="Question" data-hu="Kérdés">Question</option><option value="ideas" data-en="Development idea" data-hu="Fejlesztési ötlet">Development idea</option><option value="stories" data-en="Maker story" data-hu="Maker történet">Maker story</option></select></label>
+        <label class="signed-author"><span data-en="Publishing as" data-hu="Közzététel ezen a néven">Publishing as</span><input id="postAuthor" maxlength="60" readonly></label><label><span data-en="Title" data-hu="Cím">Title</span><input id="postTitle" maxlength="100" minlength="5" required placeholder=""></label>
+        <label><span data-en="Category" data-hu="Kategória">Category</span><select id="postCategory"><option>General</option><option>Firmware</option><option>Hardware</option><option>Home Assistant</option><option>RF / CC1101</option><option>Installation</option><option>Website</option></select></label>
+        <label><span data-en="Details" data-hu="Részletek">Details</span><textarea id="postBody" rows="7" maxlength="1400" minlength="10" required></textarea></label><label class="hp-field" aria-hidden="true"><span>Website</span><input id="postWebsite" tabindex="-1" autocomplete="off"></label>
+        <div class="form-actions"><button class="button secondary" id="cancelComposer" type="button" data-en="Cancel" data-hu="Mégse">Cancel</button><button class="button primary" type="submit" data-en="Publish" data-hu="Közzététel">Publish</button></div>
+      </form>
+    </section>
+  </div>
+
+  <div class="modal-backdrop" id="threadModal" hidden>
+    <section class="thread-modal" role="dialog" aria-modal="true" aria-labelledby="threadTitle">
+      <button class="modal-close" id="closeThread" type="button" aria-label="Close">×</button>
+      <div id="threadContent"></div>
+      <section class="reply-section">
+        <h3 data-en="Join the conversation" data-hu="Csatlakozz a beszélgetéshez">Join the conversation</h3>
+        <div id="commentList" class="comment-list"></div>
+        <form id="commentForm">
+          <label><span data-en="Display name" data-hu="Megjelenő név">Display name</span><input id="commentAuthor" maxlength="60" readonly autocomplete="nickname"></label>
+          <label><span data-en="Reply" data-hu="Válasz">Reply</span><textarea id="commentBody" maxlength="1200" minlength="2" rows="4" required></textarea></label>
+          <label class="hp-field" aria-hidden="true"><span>Website</span><input id="commentWebsite" tabindex="-1" autocomplete="off"></label>
+          <div class="form-actions"><button class="button primary" type="submit" data-en="Publish reply" data-hu="Válasz közzététele">Publish reply</button></div>
+        </form>
+      </section>
+    </section>
+  </div>
+
+  <footer class="site-footer section-shell">
+    <a class="brand footer-brand" href="index.html"><img src="assets/openrf-platform-mark.png" alt="" width="32" height="32"><span><strong>OpenRF</strong><small>Platform</small></span></a>
+    <p data-en="Built by the community. Powered by Open Source." data-hu="A közösség építi. A nyílt forráskód hajtja.">Built by the community. Powered by Open Source.</p>
+    <a class="footer-github" href="https://github.com/Krissz55555/OpenRF-Platform" target="_blank" rel="noopener">GitHub ↗</a>
+    <p>© <span id="year"></span> OpenRF Platform</p>
+  </footer>
+  <script src="script.js"></script>
+  <script src="auth.js"></script>
+  <script src="community.js"></script>
+</body>
+</html>

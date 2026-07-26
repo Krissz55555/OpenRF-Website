@@ -1,0 +1,16 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "openrf-platform",
+  "pages_build_output_dir": ".",
+  "compatibility_date": "2026-07-25",
+  "d1_databases": [
+    {
+      "binding": "COMMUNITY_DB",
+      "database_name": "openrf-community",
+      "database_id": "9df3ad4b-6024-4375-a98c-cfedd56e2aa7",
+      "preview_database_id": "9df3ad4b-6024-4375-a98c-cfedd56e2aa7",
+      "migrations_dir": "migrations"
+      "remote": true
+    }
+  ]
+}
