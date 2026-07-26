@@ -3,6 +3,13 @@ import { cleanText, enforceRateLimit, error, json, makeId, mapComment, readJson,
 export async function onRequestGet(context) {
   try {
     const id = context.params.id;
+    const post = await context.env.COMMUNITY_DB.prepare('SELECT is_hidden FROM posts WHERE id = ?').bind(id).first();
+    if (!post) return error('Post not found', 404);
+    if (Number(post.is_hidden || 0) === 1) {
+      const auth = await requireUser(context);
+      if (auth.response) return auth.response;
+      if (Number(auth.user.is_admin || 0) !== 1) return error('Post not found', 404);
+    }
     const result = await context.env.COMMUNITY_DB.prepare(`
       SELECT id, post_id, author, body, created_at
       FROM comments
@@ -25,8 +32,9 @@ export async function onRequestPost(context) {
     if (!rate.allowed) return error('Too many comments. Please try again later.', 429);
 
     const postId = context.params.id;
-    const exists = await context.env.COMMUNITY_DB.prepare('SELECT id FROM posts WHERE id = ? AND is_hidden = 0').bind(postId).first();
+    const exists = await context.env.COMMUNITY_DB.prepare('SELECT id, is_locked FROM posts WHERE id = ? AND is_hidden = 0').bind(postId).first();
     if (!exists) return error('Post not found', 404);
+    if (Number(exists.is_locked || 0) === 1) return error('This topic is locked', 423);
 
     const input = await readJson(context.request);
     if (cleanText(input.website, 100)) return json({ ok: true, ignored: true });

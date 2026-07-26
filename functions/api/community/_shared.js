@@ -72,6 +72,9 @@ export function mapPost(row) {
     solved: Boolean(row.solved),
     status: row.status || null,
     featured: Boolean(row.featured),
+    hidden: Boolean(row.is_hidden),
+    pinned: Boolean(row.is_pinned),
+    locked: Boolean(row.is_locked),
   };
 }
 

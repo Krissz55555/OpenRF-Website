@@ -32,7 +32,7 @@
     s1:[{id:'c_s1_1',postId:'s1',author:'OpenRF Team',body:'This pool-light controller became the first real OpenRF showcase project.',date:'2026-07-25T12:20:00.000Z'}]
   };
 
-  const state = { data: structuredClone(defaults), backendOnline: false, active: 'discussions', query: '', selectedPost: null };
+  const state = { data: structuredClone(defaults), backendOnline: false, active: 'discussions', query: '', selectedPost: null, showHidden: false };
   const language = () => localStorage.getItem('openrf-language') || 'en';
   const t = (item, base) => item[base + (language()==='hu'?'Hu':'En')] || item[base+'En'] || '';
   const escapeHtml = value => String(value ?? '').replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#039;','"':'&quot;'}[c]));
@@ -72,7 +72,7 @@
 
   async function loadPosts() {
     try {
-      const response = await apiFetch('/posts');
+      const response = await apiFetch(state.showHidden ? '/posts?include_hidden=1' : '/posts');
       if (!response.ok) throw new Error('API unavailable');
       const payload = await response.json();
       const grouped = {discussions:[],questions:[],ideas:[],stories:[]};
@@ -93,7 +93,10 @@
     const badges = [
       item.solved ? `<span class="post-badge solved">✓ ${language()==='hu'?'Megoldva':'Solved'}</span>` : '',
       item.status ? `<span class="status-badge ${escapeHtml(item.status)}">${escapeHtml(statusText(item.status))}</span>` : '',
-      item.featured ? `<span class="post-badge featured">★ ${language()==='hu'?'Kiemelt történet':'Featured story'}</span>` : ''
+      item.pinned ? `<span class="post-badge pinned">📌 ${language()==='hu'?'Kitűzve':'Pinned'}</span>` : '',
+      item.locked ? `<span class="post-badge locked">🔒 ${language()==='hu'?'Lezárva':'Locked'}</span>` : '',
+      item.hidden ? `<span class="post-badge hidden">🙈 ${language()==='hu'?'Rejtett':'Hidden'}</span>` : '',
+      item.featured ? `<span class="post-badge featured">★ ${language()==='hu'?'Kiemelt':'Featured'}</span>` : ''
     ].join('');
     const vote = type === 'ideas' ? `<button class="vote-button ${isVoted?'voted':''}" data-vote="${escapeHtml(item.id)}" type="button" aria-label="Vote"><span>▲</span><b>${Number(item.votes || 0)}</b><small>${language()==='hu'?'szavazat':'votes'}</small></button>` : '';
     return `<article class="community-post" data-open="${escapeHtml(item.id)}" data-type="${escapeHtml(type)}" tabindex="0">
@@ -165,7 +168,15 @@
 
   const composer = document.getElementById('composerModal');
   const threadModal = document.getElementById('threadModal');
+  const threadModeration = document.getElementById('threadModeration');
+  const pinTopicButton = document.getElementById('pinTopicButton');
+  const lockTopicButton = document.getElementById('lockTopicButton');
+  const featureTopicButton = document.getElementById('featureTopicButton');
   const hideTopicButton = document.getElementById('hideTopicButton');
+  const deleteTopicButton = document.getElementById('deleteTopicButton');
+  const toggleHiddenTopicsButton = document.getElementById('toggleHiddenTopicsButton');
+  const lockedTopicNotice = document.getElementById('lockedTopicNotice');
+  const commentForm = document.getElementById('commentForm');
   const openComposer = () => {
     if (state.backendOnline && !window.OpenRFAuth?.requireLogin()) return;
     composer.hidden = false;
@@ -180,24 +191,74 @@
       threadModal.hidden = true;
       state.selectedPost = null;
 
-      if (hideTopicButton) {
-          hideTopicButton.disabled = true;
-      }
+      if (threadModeration) threadModeration.hidden = true;
+      if (lockedTopicNotice) lockedTopicNotice.hidden = true;
 
       document.body.classList.remove('modal-open');
   };
+
+  function buttonLabel(button, en, hu) {
+    if (!button) return;
+    button.textContent = language() === 'hu' ? hu : en;
+  }
+
+  function syncModerationButtons(item) {
+    buttonLabel(pinTopicButton, item.pinned ? '📌 Unpin topic' : '📌 Pin topic', item.pinned ? '📌 Kitűzés megszüntetése' : '📌 Téma kitűzése');
+    buttonLabel(lockTopicButton, item.locked ? '🔓 Unlock topic' : '🔒 Lock topic', item.locked ? '🔓 Téma feloldása' : '🔒 Téma lezárása');
+    buttonLabel(featureTopicButton, item.featured ? '☆ Remove feature' : '⭐ Feature topic', item.featured ? '☆ Kiemelés megszüntetése' : '⭐ Téma kiemelése');
+    buttonLabel(hideTopicButton, item.hidden ? '♻ Restore topic' : '🙈 Hide topic', item.hidden ? '♻ Téma visszaállítása' : '🙈 Téma elrejtése');
+    buttonLabel(deleteTopicButton, '🗑 Delete topic', '🗑 Téma törlése');
+  }
+
+  function syncLockedState(item) {
+    if (!commentForm || !lockedTopicNotice) return;
+    commentForm.hidden = !!item.locked;
+    lockedTopicNotice.hidden = !item.locked;
+    lockedTopicNotice.textContent = language() === 'hu'
+      ? '🔒 Ez a téma le van zárva. Új válasz nem küldhető.'
+      : '🔒 This topic is locked. New replies cannot be posted.';
+  }
+
+  async function moderateSelected(action) {
+    if (!state.selectedPost) return;
+    const buttons = [pinTopicButton, lockTopicButton, featureTopicButton, hideTopicButton, deleteTopicButton];
+    buttons.forEach(button => { if (button) button.disabled = true; });
+    try {
+      const response = await apiFetch(`/posts/${encodeURIComponent(state.selectedPost.id)}/moderate`, {
+        method: 'POST',
+        body: JSON.stringify({ action })
+      });
+      const result = await response.json();
+      if (!response.ok) throw new Error(result.error || 'Moderation failed');
+      state.selectedPost = result.post;
+      if (action === 'hide' || action === 'restore') {
+        closeThread();
+        await loadPosts();
+        return;
+      }
+      const list = state.data[result.post.type];
+      const index = list.findIndex(entry => entry.id === result.post.id);
+      if (index >= 0) list[index] = result.post;
+      syncModerationButtons(result.post);
+      syncLockedState(result.post);
+      render();
+    } catch (error) {
+      alert(error.message || (language() === 'hu' ? 'A moderációs művelet nem sikerült.' : 'The moderation action failed.'));
+    } finally {
+      buttons.forEach(button => { if (button) button.disabled = false; });
+    }
+  }
 
   async function openThread(id, type) {
     const item = state.data[type].find(entry => entry.id === id);
     if (!item) return;
     state.selectedPost = item;
 
-    if (hideTopicButton) {
-      hideTopicButton.disabled = !(
-        window.OpenRFAuth?.state.user &&
-        Number(window.OpenRFAuth.state.user.is_admin || 0) === 1
-      );
-    }
+    const isAdmin = !!(window.OpenRFAuth?.state.user && Number(window.OpenRFAuth.state.user.is_admin || 0) === 1);
+    if (threadModeration) threadModeration.hidden = !isAdmin;
+    syncModerationButtons(item);
+    syncLockedState(item);
+
     document.getElementById('threadContent').innerHTML = `
       <span class="section-kicker">${escapeHtml(item.category)}</span>
       <h2 id="threadTitle">${escapeHtml(t(item,'title'))}</h2>
@@ -317,46 +378,52 @@
     }
   });
 
-  hideTopicButton?.addEventListener('click', async () => {
+  pinTopicButton?.addEventListener('click', () => moderateSelected(state.selectedPost?.pinned ? 'unpin' : 'pin'));
+  lockTopicButton?.addEventListener('click', () => moderateSelected(state.selectedPost?.locked ? 'unlock' : 'lock'));
+  featureTopicButton?.addEventListener('click', () => moderateSelected(state.selectedPost?.featured ? 'unfeature' : 'feature'));
+  hideTopicButton?.addEventListener('click', () => {
     if (!state.selectedPost) return;
+    const action = state.selectedPost.hidden ? 'restore' : 'hide';
+    const message = state.selectedPost.hidden
+      ? (language() === 'hu' ? 'Visszaállítod ezt a témát?' : 'Restore this topic?')
+      : (language() === 'hu' ? 'Biztosan elrejted ezt a témát?' : 'Hide this topic?');
+    if (window.confirm(message)) moderateSelected(action);
+  });
 
-    const confirmed = window.confirm(
-      language() === 'hu'
-        ? 'Biztosan elrejted ezt a témát?'
-        : 'Hide this topic?'
-    );
+  deleteTopicButton?.addEventListener('click', async () => {
+    if (!state.selectedPost) return;
+    const title = t(state.selectedPost, 'title');
+    const first = window.confirm(language() === 'hu'
+      ? `Végleg törlöd ezt a témát?
 
-    if (!confirmed) return;
+${title}`
+      : `Permanently delete this topic?
 
-    hideTopicButton.disabled = true;
-
+${title}`);
+    if (!first) return;
+    const typed = window.prompt(language() === 'hu' ? 'A végleges törléshez írd be: TÖRLÉS' : 'Type DELETE to permanently remove it:');
+    const valid = language() === 'hu' ? typed === 'TÖRLÉS' : typed === 'DELETE';
+    if (!valid) return;
+    deleteTopicButton.disabled = true;
     try {
-      const response = await apiFetch(
-        `/posts/${encodeURIComponent(state.selectedPost.id)}/hide`,
-        {
-          method: 'POST',
-          body: JSON.stringify({ hidden: true })
-        }
-      );
-
+      const response = await apiFetch(`/posts/${encodeURIComponent(state.selectedPost.id)}`, { method: 'DELETE', body: '{}' });
       const result = await response.json();
-
-      if (!response.ok) {
-        throw new Error(result.error || 'Hide failed');
-      }
-
+      if (!response.ok) throw new Error(result.error || 'Delete failed');
       closeThread();
       await loadPosts();
     } catch (error) {
-      alert(
-        error.message ||
-        (language() === 'hu'
-          ? 'A téma elrejtése nem sikerült.'
-          : 'Could not hide the topic.')
-      );
-
-      hideTopicButton.disabled = false;
+      alert(error.message || (language() === 'hu' ? 'A téma törlése nem sikerült.' : 'The topic could not be deleted.'));
+      deleteTopicButton.disabled = false;
     }
+  });
+
+  toggleHiddenTopicsButton?.addEventListener('click', async () => {
+    state.showHidden = !state.showHidden;
+    buttonLabel(toggleHiddenTopicsButton,
+      state.showHidden ? '← Show public topics' : '🙈 Show hidden topics',
+      state.showHidden ? '← Nyilvános témák megjelenítése' : '🙈 Rejtett témák megjelenítése');
+    closeThread();
+    await loadPosts();
   });
 
   // v1.4.3: browser-independent custom dropdowns.
@@ -471,6 +538,7 @@
     search.placeholder = search.dataset[language()==='hu'?'placeholderHu':'placeholderEn'];
     setBackendStatus(state.backendOnline);
     customSelects.forEach((_, id) => syncCustomSelect(document.getElementById(id)));
+    buttonLabel(toggleHiddenTopicsButton, state.showHidden ? '← Show public topics' : '🙈 Show hidden topics', state.showHidden ? '← Nyilvános témák megjelenítése' : '🙈 Rejtett témák megjelenítése');
     render();
     if (state.selectedPost && !threadModal.hidden) openThread(state.selectedPost.id, state.selectedPost.type);
   });

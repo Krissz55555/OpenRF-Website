@@ -16,9 +16,16 @@ export async function onRequestGet(context) {
     const url = new URL(context.request.url);
     const type = cleanText(url.searchParams.get('type') || '', 20);
     const query = cleanText(url.searchParams.get('q') || '', 80).toLowerCase();
+    const includeHidden = url.searchParams.get('include_hidden') === '1';
+
+    if (includeHidden) {
+      const auth = await requireUser(context);
+      if (auth.response) return auth.response;
+      if (Number(auth.user.is_admin || 0) !== 1) return error('Admin permission required', 403);
+    }
 
     const params = [];
-    const where = ['p.is_hidden = 0'];
+    const where = [includeHidden ? 'p.is_hidden = 1' : 'p.is_hidden = 0'];
 
     if (type) {
       if (!validTypes.has(type)) return error('Invalid post type');
@@ -45,7 +52,7 @@ export async function onRequestGet(context) {
         (SELECT COUNT(*) FROM votes v WHERE v.post_id = p.id) AS votes
       FROM posts p
       WHERE ${where.join(' AND ')}
-      ORDER BY p.featured DESC, p.created_at DESC
+      ORDER BY p.is_pinned DESC, p.featured DESC, p.created_at DESC
       LIMIT 250
     `;
 
