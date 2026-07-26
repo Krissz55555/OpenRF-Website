@@ -9,7 +9,7 @@
       "database_name": "openrf-community",
       "database_id": "9df3ad4b-6024-4375-a98c-cfedd56e2aa7",
       "preview_database_id": "9df3ad4b-6024-4375-a98c-cfedd56e2aa7",
-      "migrations_dir": "migrations"
+      "migrations_dir": "migrations",
       "remote": true
     }
   ]
