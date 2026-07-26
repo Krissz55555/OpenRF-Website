@@ -7,16 +7,40 @@
     const login = el('githubLogin');
     const menu = el('userMenu');
     const hint = el('authHint');
+    const adminButton = el('adminButton');
+
     if (!login || !menu) return;
+
     login.hidden = !!state.user;
     menu.hidden = !state.user;
+
+    if (adminButton) {
+      adminButton.hidden = !state.user || Number(state.user.is_admin || 0) !== 1;
+    }
+
     if (state.user) {
-      el('userAvatar').src = state.user.avatar_url || 'assets/openrf-platform-mark.png';
-      el('userName').textContent = state.user.display_name || state.user.login;
-      if (hint) hint.textContent = language()==='hu' ? `Belépve: ${state.user.display_name || state.user.login}` : `Signed in as ${state.user.display_name || state.user.login}`;
-      ['postAuthor','commentAuthor'].forEach(id => { if (el(id)) el(id).value = state.user.display_name || state.user.login; });
+      el('userAvatar').src =
+        state.user.avatar_url || 'assets/openrf-platform-mark.png';
+
+      el('userName').textContent =
+        state.user.display_name || state.user.login;
+
+      if (hint) {
+        hint.textContent = language() === 'hu'
+          ? `Belépve: ${state.user.display_name || state.user.login}`
+          : `Signed in as ${state.user.display_name || state.user.login}`;
+      }
+
+      ['postAuthor', 'commentAuthor'].forEach(id => {
+        if (el(id)) {
+          el(id).value =
+            state.user.display_name || state.user.login;
+        }
+      });
     } else if (hint) {
-      hint.textContent = language()==='hu' ? 'Íráshoz, válaszhoz és szavazáshoz jelentkezz be' : 'Sign in to post, reply or vote';
+      hint.textContent = language() === 'hu'
+        ? 'Íráshoz, válaszhoz és szavazáshoz jelentkezz be'
+        : 'Sign in to post, reply or vote';
     }
   }
 

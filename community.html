@@ -26,7 +26,27 @@
     </nav>
     <div class="auth-control" id="authControl">
       <a class="github-login" id="githubLogin" href="/api/auth/github/start" data-en="Sign in with GitHub" data-hu="Belépés GitHubbal">Sign in with GitHub</a>
-      <div class="user-menu" id="userMenu" hidden><img id="userAvatar" alt=""><span id="userName"></span><button id="logoutButton" type="button" data-en="Sign out" data-hu="Kilépés">Sign out</button></div>
+      <div class="user-menu" id="userMenu" hidden>
+    <img id="userAvatar" alt="">
+    <span id="userName"></span>
+
+    <button
+        id="adminButton"
+        type="button"
+        hidden
+        data-en="Admin"
+        data-hu="Admin">
+        ⚙ Admin
+    </button>
+
+    <button
+        id="logoutButton"
+        type="button"
+        data-en="Sign out"
+        data-hu="Kilépés">
+        Sign out
+    </button>
+</div>
     </div>
     <button class="lang-toggle" id="langToggle" type="button" aria-label="Change language"><span class="active">EN</span><span>HU</span></button>
   </header>
