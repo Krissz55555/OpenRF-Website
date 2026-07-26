@@ -165,6 +165,7 @@
 
   const composer = document.getElementById('composerModal');
   const threadModal = document.getElementById('threadModal');
+  const hideTopicButton = document.getElementById('hideTopicButton');
   const openComposer = () => {
     if (state.backendOnline && !window.OpenRFAuth?.requireLogin()) return;
     composer.hidden = false;
@@ -175,12 +176,28 @@
     document.getElementById('postTitle').focus();
   };
   const closeComposer = () => { composer.hidden = true; document.body.classList.remove('modal-open'); };
-  const closeThread = () => { threadModal.hidden = true; state.selectedPost = null; document.body.classList.remove('modal-open'); };
+  const closeThread = () => {
+      threadModal.hidden = true;
+      state.selectedPost = null;
+
+      if (hideTopicButton) {
+          hideTopicButton.disabled = true;
+      }
+
+      document.body.classList.remove('modal-open');
+  };
 
   async function openThread(id, type) {
     const item = state.data[type].find(entry => entry.id === id);
     if (!item) return;
     state.selectedPost = item;
+
+    if (hideTopicButton) {
+      hideTopicButton.disabled = !(
+        window.OpenRFAuth?.state.user &&
+        Number(window.OpenRFAuth.state.user.is_admin || 0) === 1
+      );
+    }
     document.getElementById('threadContent').innerHTML = `
       <span class="section-kicker">${escapeHtml(item.category)}</span>
       <h2 id="threadTitle">${escapeHtml(t(item,'title'))}</h2>
@@ -300,7 +317,47 @@
     }
   });
 
+  hideTopicButton?.addEventListener('click', async () => {
+    if (!state.selectedPost) return;
 
+    const confirmed = window.confirm(
+      language() === 'hu'
+        ? 'Biztosan elrejted ezt a témát?'
+        : 'Hide this topic?'
+    );
+
+    if (!confirmed) return;
+
+    hideTopicButton.disabled = true;
+
+    try {
+      const response = await apiFetch(
+        `/posts/${encodeURIComponent(state.selectedPost.id)}/hide`,
+        {
+          method: 'POST',
+          body: JSON.stringify({ hidden: true })
+        }
+      );
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Hide failed');
+      }
+
+      closeThread();
+      await loadPosts();
+    } catch (error) {
+      alert(
+        error.message ||
+        (language() === 'hu'
+          ? 'A téma elrejtése nem sikerült.'
+          : 'Could not hide the topic.')
+      );
+
+      hideTopicButton.disabled = false;
+    }
+  });
 
   // v1.4.3: browser-independent custom dropdowns.
   // Native <select> popup styling is controlled by the operating system in Chrome,
