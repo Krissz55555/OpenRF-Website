@@ -42,15 +42,6 @@
             📌 Pin topic
         </button>
 
-        <button
-           id="hideTopicButton"
-            class="admin-action"
-            type="button"
-            disabled>
-            🙈 Hide topic
-        </button>
-
-
         <button class="admin-action" disabled>
             🔒 Lock topic
         </button>
@@ -178,6 +169,19 @@
     <section class="thread-modal" role="dialog" aria-modal="true" aria-labelledby="threadTitle">
       <button class="modal-close" id="closeThread" type="button" aria-label="Close">×</button>
       <div id="threadContent"></div>
+
+      <div class="thread-admin-actions">
+        <button
+          id="hideTopicButton"
+          class="admin-action"
+          type="button"
+          disabled
+          data-en="🙈 Hide topic"
+          data-hu="🙈 Téma elrejtése">
+          🙈 Hide topic
+        </button>
+      </div>
+
       <section class="reply-section">
         <h3 data-en="Join the conversation" data-hu="Csatlakozz a beszélgetéshez">Join the conversation</h3>
         <div id="commentList" class="comment-list"></div>
