@@ -33,11 +33,26 @@ export function cookie(name, value, options = {}) {
 export async function currentUser(context) {
   const token = parseCookies(context.request).openrf_session;
   if (!token) return null;
+
   const hash = await sha256(token);
+
   const user = await context.env.COMMUNITY_DB.prepare(`
-    SELECT u.id, u.login, u.display_name, u.avatar_url, u.profile_url
-    FROM sessions s JOIN users u ON u.id = s.user_id
-    WHERE s.token_hash = ? AND s.expires_at > ? AND u.is_blocked = 0
+    SELECT
+      u.id,
+      u.login,
+      u.display_name,
+      u.avatar_url,
+      u.profile_url,
+      CASE
+        WHEN LOWER(u.login) = 'krissz55555' THEN 1
+        ELSE 0
+      END AS is_admin
+    FROM sessions s
+    JOIN users u ON u.id = s.user_id
+    WHERE s.token_hash = ?
+      AND s.expires_at > ?
+      AND u.is_blocked = 0
   `).bind(hash, new Date().toISOString()).first();
+
   return user || null;
 }
