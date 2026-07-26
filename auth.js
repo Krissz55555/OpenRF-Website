@@ -7,16 +7,19 @@
     const login = el('githubLogin');
     const menu = el('userMenu');
     const hint = el('authHint');
-    const adminButton = el('adminButton');
+    const adminMenu = el('adminMenuWrapper');
 
     if (!login || !menu) return;
 
     login.hidden = !!state.user;
     menu.hidden = !state.user;
 
-    if (adminButton) {
-      adminButton.hidden = !state.user || Number(state.user.is_admin || 0) !== 1;
+    if (adminMenu) {
+      adminMenu.hidden =
+        !state.user || Number(state.user.is_admin || 0) !== 1;
     }
+
+
 
     if (state.user) {
       el('userAvatar').src =
@@ -72,6 +75,23 @@
     });
     load();
   });
+
+  const adminButton = el("adminButton");
+  const adminDropdown = el("adminDropdown");
+
+  adminButton?.addEventListener("click", (e) => {
+      e.stopPropagation();
+
+      if (adminDropdown) {
+          adminDropdown.hidden = !adminDropdown.hidden;
+      }
+  });
+
+document.addEventListener("click", () => {
+    if (adminDropdown) {
+        adminDropdown.hidden = true;
+    }
+});
 
   window.OpenRFAuth = {state,load,render,requireLogin};
 })();

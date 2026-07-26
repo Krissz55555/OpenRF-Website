@@ -30,14 +30,39 @@
     <img id="userAvatar" alt="">
     <span id="userName"></span>
 
-    <button
-        id="adminButton"
-        type="button"
-        hidden
-        data-en="Admin"
-        data-hu="Admin">
+<div id="adminMenuWrapper" class="admin-menu" hidden>
+
+    <button id="adminButton" type="button">
         ⚙ Admin
     </button>
+
+    <div id="adminDropdown" class="admin-dropdown" hidden>
+
+        <button class="admin-action" disabled>
+            📌 Pin topic
+        </button>
+
+        <button class="admin-action" disabled>
+            🙈 Hide topic
+        </button>
+
+        <button class="admin-action" disabled>
+            🔒 Lock topic
+        </button>
+
+        <button class="admin-action" disabled>
+            ⭐ Feature topic
+        </button>
+
+        <hr>
+
+        <button class="admin-action danger" disabled>
+            🗑 Delete topic
+        </button>
+
+    </div>
+
+</div>
 
     <button
         id="logoutButton"
