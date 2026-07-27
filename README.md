@@ -53,7 +53,7 @@ authentication and moderation tools.
 VERSION
 -------
 Website: v1.4 Database Edition
-Firmware presented: OpenRF Platform v1.0.0 Stable
+Firmware presented: OpenRF Platform v1.1.0 Stable
 
 
 V1.4 GITHUB EDITION
