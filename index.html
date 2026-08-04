@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="OpenRF Platform — open-source, community-driven RF gateway platform for ESP8266, CC1101, MQTT and Home Assistant.">
+  <meta name="description" content="OpenRF Platform — open-source RF gateway and automation platform for ESP8266, CC1101, MQTT and Home Assistant.">
   <meta name="theme-color" content="#07111f">
-  <title>OpenRF Platform — Learn. Build. Share. Improve.</title>
+  <title>OpenRF Platform — Open Source RF Gateway & Automation Platform</title>
   <link rel="icon" href="assets/openrf-platform-mark.png" type="image/png">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -17,13 +17,13 @@
     </a>
     <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu">☰</button>
     <nav class="nav" id="mainNav">
-      <a data-en="About" data-hu="Rólunk" href="#about">About</a>
-      <a data-en="Community" data-hu="Közösség" href="community.html">Community Hub</a>
-      <a data-en="Showcase" data-hu="Projektek" href="#showcase">Showcase</a>
+      <a data-en="About" data-hu="Bemutatkozás" href="#about">About</a>
+      <a data-en="Features" data-hu="Funkciók" href="#features">Features</a>
+      <a data-en="Community" data-hu="Közösség" href="community.html">Community</a>
       <a data-en="Documentation" data-hu="Dokumentáció" href="#documentation">Documentation</a>
-      <a data-en="Roadmap" data-hu="Ütemterv" href="#roadmap">Roadmap</a>
+      <a data-en="Roadmap" data-hu="Jövőkép" href="#roadmap">Roadmap</a>
       <a data-en="Downloads" data-hu="Letöltések" href="#downloads">Downloads</a>
-          <a class="github-nav" href="https://github.com/Krissz55555/OpenRF-Platform" target="_blank" rel="noopener">GitHub ↗</a>
+      <a class="github-nav" href="https://github.com/Krissz55555/OpenRF-Platform" target="_blank" rel="noopener">GitHub ↗</a>
     </nav>
     <button class="lang-toggle" id="langToggle" type="button" aria-label="Change language"><span class="active">EN</span><span>HU</span></button>
   </header>
@@ -31,139 +31,175 @@
   <main id="top">
     <section class="status-bar">
       <span class="status-dot"></span>
-      <p data-en="OpenRF Platform v1.1.0 Stable is available. The v1.4 Community Hub now includes shared database storage." data-hu="Az OpenRF Platform v1.1.0 Stable elérhető. A v1.4 Community Hub már közös adatbázisos tárolást használ.">OpenRF Platform v1.1.0 Stable is available. The v1.4 Community Hub now includes shared database storage.</p>
+      <p data-en="OpenRF Platform v1.2.0 Final is now available — the ESP8266 generation is feature complete." data-hu="Megjelent az OpenRF Platform v1.2.0 Final – az ESP8266-generáció funkcionálisan teljessé vált.">OpenRF Platform v1.2.0 Final is now available — the ESP8266 generation is feature complete.</p>
     </section>
 
-    <section class="hero section-shell">
+    <section class="hero section-shell hero-v144">
       <div class="hero-copy">
-        <div class="eyebrow"><span>ESP8266</span><span>CC1101</span><span>433 MHz</span><span>MQTT</span><span>Home Assistant</span></div>
+        <div class="eyebrow"><span>ESP8266 Final</span><span>CC1101</span><span>433 / 868 MHz</span><span>MQTT</span><span>Home Assistant</span></div>
         <h1>
-          <span data-en="Learn. Build. Share." data-hu="Tanulj. Építs. Oszd meg.">Learn. Build. Share.</span>
-          <em data-en="Improve together." data-hu="Fejlesszünk együtt.">Improve together.</em>
+          <span data-en="Open Source RF Gateway" data-hu="Nyílt forráskódú RF gateway">Open Source RF Gateway</span>
+          <em data-en="& Automation Platform." data-hu="és automatizálási platform.">& Automation Platform.</em>
         </h1>
-        <p class="hero-lead" data-en="OpenRF Platform is an open-source RF ecosystem where firmware, hardware, documentation and community knowledge come together." data-hu="Az OpenRF Platform egy nyílt forráskódú RF ökoszisztéma, ahol a firmware, a hardver, a dokumentáció és a közösségi tudás találkozik.">OpenRF Platform is an open-source RF ecosystem where firmware, hardware, documentation and community knowledge come together.</p>
+        <p class="hero-lead" data-en="Build a complete ESP8266 + CC1101 RF gateway with native protocol support, RAW transmission, RF analysis, MQTT, Home Assistant Discovery and a modern local web interface." data-hu="Építs teljes értékű ESP8266 + CC1101 RF gatewayt natív protokolltámogatással, RAW átvitellel, RF elemzéssel, MQTT-vel, Home Assistant Discoveryvel és modern, helyi webes felülettel.">Build a complete ESP8266 + CC1101 RF gateway with native protocol support, RAW transmission, RF analysis, MQTT, Home Assistant Discovery and a modern local web interface.</p>
         <div class="hero-actions">
-          <a class="button primary" href="/downloads/OpenRF-Platform-v1.1.0.zip" download data-en="Download v1.1.0" data-hu="v1.1.0 letöltése">Download v1.1.0</a>
-          <a class="button secondary" href="community.html" data-en="Open Community Hub" data-hu="Közösségi központ megnyitása">Open Community Hub</a>
+          <a class="button primary" href="#downloads" data-en="Download v1.2.0" data-hu="v1.2.0 letöltése">Download v1.2.0</a>
+          <a class="button secondary" href="installation.html" data-en="Installation Guide" data-hu="Telepítési útmutató">Installation Guide</a>
+          <a class="button secondary" href="https://github.com/Krissz55555/OpenRF-Platform" target="_blank" rel="noopener">GitHub ↗</a>
         </div>
-        <p class="microcopy" data-en="Built by the community. Powered by Open Source. Inspired by Makers." data-hu="A közösség építi. A nyílt forráskód hajtja. A makerek inspirálják.">Built by the community. Powered by Open Source. Inspired by Makers.</p>
+        <p class="microcopy" data-en="ESP8266 feature complete · Open source · Built for practical RF automation" data-hu="ESP8266 funkcionálisan teljes · Nyílt forráskód · Gyakorlati RF automatizáláshoz">ESP8266 feature complete · Open source · Built for practical RF automation</p>
       </div>
       <div class="hero-visual">
         <div class="official-logo-wrap"><img class="official-logo" src="assets/openrf-platform-logo.png" alt="OpenRF Platform"></div>
       </div>
     </section>
 
-    <section class="metrics section-shell" aria-label="Project statistics">
-      <article><strong>1.0.0</strong><span data-en="Stable release" data-hu="Stabil kiadás">Stable release</span></article>
-      <article><strong>30</strong><span data-en="RAW slots" data-hu="RAW slot">RAW slots</span></article>
-      <article><strong>433.92</strong><span>MHz OOK</span></article>
+    <section class="metrics section-shell" aria-label="Project highlights">
+      <article><strong>1.2.0</strong><span data-en="Final ESP8266 release" data-hu="Végleges ESP8266 kiadás">Final ESP8266 release</span></article>
+      <article><strong>30</strong><span data-en="RAW Learn slots" data-hu="RAW tanuló slot">RAW Learn slots</span></article>
+      <article><strong>433 / 868</strong><span data-en="MHz radio selection" data-hu="MHz frekvenciaválasztás">MHz radio selection</span></article>
       <article><strong>100%</strong><span data-en="Open source" data-hu="Nyílt forráskód">Open source</span></article>
     </section>
 
     <section id="about" class="section-shell content-section about-grid">
       <div>
-        <span class="section-kicker" data-en="About OpenRF" data-hu="Az OpenRF-ről">About OpenRF</span>
-        <h2 data-en="More than firmware." data-hu="Több mint firmware.">More than firmware.</h2>
+        <span class="section-kicker" data-en="OpenRF Platform v1.2.0 Final" data-hu="OpenRF Platform v1.2.0 Final">OpenRF Platform v1.2.0 Final</span>
+        <h2 data-en="The ESP8266 platform is complete." data-hu="Az ESP8266 platform elkészült.">The ESP8266 platform is complete.</h2>
       </div>
-      <div class="mission-card">
-        <p data-en="The OpenRF Platform aims to create an open, community-supported RF platform where hardware, firmware, documentation and the community form a single ecosystem." data-hu="Az OpenRF Platform célja egy nyílt, közösség által támogatott RF platform létrehozása, ahol a hardver, a firmware, a dokumentáció és a közösség egyetlen ökoszisztémát alkot.">The OpenRF Platform aims to create an open, community-supported RF platform where hardware, firmware, documentation and the community form a single ecosystem.</p>
-        <p data-en="The website is the central hub of this ecosystem — the place where everything from the first installation to troubleshooting, learning, collaboration and advanced development is available." data-hu="A weboldal ennek az ökoszisztémának a központja: az a hely, ahol az első telepítéstől kezdve a hibakeresésen, tanuláson és együttműködésen át a haladó fejlesztésig minden elérhető.">The website is the central hub of this ecosystem — the place where everything from the first installation to troubleshooting, learning, collaboration and advanced development is available.</p>
+      <div class="mission-card final-release-card">
+        <p data-en="OpenRF Platform v1.2.0 is the final feature release for the original ESP8266 + CC1101 architecture. What began as a simple RF gateway has evolved into a complete open-source platform for receiving, analysing, learning and transmitting RF signals." data-hu="Az OpenRF Platform v1.2.0 az eredeti ESP8266 + CC1101 architektúra utolsó funkcionális kiadása. Az egyszerű RF gatewayként induló projekt mára teljes, nyílt forráskódú platformmá fejlődött RF jelek vételéhez, elemzéséhez, tanításához és továbbításához.">OpenRF Platform v1.2.0 is the final feature release for the original ESP8266 + CC1101 architecture. What began as a simple RF gateway has evolved into a complete open-source platform for receiving, analysing, learning and transmitting RF signals.</p>
+        <p data-en="The ESP8266 implementation is now considered feature complete. Future releases for this platform will focus only on critical bug fixes if required." data-hu="Az ESP8266 megvalósítás mostantól funkcionálisan teljesnek tekinthető. A jövőbeni ESP8266 kiadások kizárólag szükséges, kritikus hibajavításokra koncentrálnak.">The ESP8266 implementation is now considered feature complete. Future releases for this platform will focus only on critical bug fixes if required.</p>
       </div>
     </section>
 
-    <section class="section-shell values-grid">
-      <article><span>01</span><h3 data-en="Learn" data-hu="Tanulj">Learn</h3><p data-en="Clear documentation and community help make RF development accessible." data-hu="Érthető dokumentáció és közösségi segítség teszi elérhetővé az RF fejlesztést.">Clear documentation and community help make RF development accessible.</p></article>
-      <article><span>02</span><h3 data-en="Build" data-hu="Építs">Build</h3><p data-en="Turn ideas into working RF projects with open hardware and software." data-hu="Alakítsd az ötleteket működő RF projektekké nyílt hardverrel és szoftverrel.">Turn ideas into working RF projects with open hardware and software.</p></article>
-      <article><span>03</span><h3 data-en="Share" data-hu="Oszd meg">Share</h3><p data-en="Show your project, document the journey and inspire the next maker." data-hu="Mutasd meg a projektedet, dokumentáld az utat és inspiráld a következő makert.">Show your project, document the journey and inspire the next maker.</p></article>
-      <article><span>04</span><h3 data-en="Improve" data-hu="Fejlessz">Improve</h3><p data-en="Every idea, answer and bug report moves OpenRF forward." data-hu="Minden ötlet, válasz és hibajelentés előrébb viszi az OpenRF-et.">Every idea, answer and bug report moves OpenRF forward.</p></article>
+    <section id="features" class="section-shell content-section">
+      <div class="section-heading split-heading">
+        <div><span class="section-kicker" data-en="Feature highlights" data-hu="Fő funkciók">Feature highlights</span><h2 data-en="A complete RF toolkit in one platform." data-hu="Teljes RF eszköztár egyetlen platformban.">A complete RF toolkit in one platform.</h2></div>
+        <p class="section-summary" data-en="Designed for local operation, practical automation and direct Home Assistant integration." data-hu="Helyi működéshez, gyakorlati automatizáláshoz és közvetlen Home Assistant integrációhoz tervezve.">Designed for local operation, practical automation and direct Home Assistant integration.</p>
+      </div>
+      <div class="feature-grid-v144">
+        <article><span class="feature-symbol">📡</span><h3 data-en="Stable RF Gateway" data-hu="Stabil RF gateway">Stable RF Gateway</h3><p data-en="Reliable ESP8266 + CC1101 reception and transmission for everyday automation." data-hu="Megbízható ESP8266 + CC1101 vétel és adás mindennapi automatizálási feladatokra.">Reliable ESP8266 + CC1101 reception and transmission for everyday automation.</p></article>
+        <article><span class="feature-symbol">🔍</span><h3>RF Analyzer v2</h3><p data-en="Inspect received frames, timing data, RSSI and rejection reasons directly in the WebUI." data-hu="Vizsgáld a vett kereteket, időzítési adatokat, RSSI-t és elutasítási okokat közvetlenül a WebUI-ban.">Inspect received frames, timing data, RSSI and rejection reasons directly in the WebUI.</p></article>
+        <article><span class="feature-symbol">🧩</span><h3 data-en="Native Protocol Framework" data-hu="Natív protokollkeretrendszer">Native Protocol Framework</h3><p data-en="Structured protocol support with room for continued expansion and community contributions." data-hu="Strukturált protokolltámogatás, amely tovább bővíthető és közösségi fejlesztésekre is nyitott.">Structured protocol support with room for continued expansion and community contributions.</p></article>
+        <article><span class="feature-symbol">⚡</span><h3>NVKP01 Kinetic</h3><p data-en="Native recognition, learning and RX Slot support for the NVKP01 kinetic remote." data-hu="Natív felismerés, tanítás és RX Slot támogatás az NVKP01 kinetikus távirányítóhoz.">Native recognition, learning and RX Slot support for the NVKP01 kinetic remote.</p></article>
+        <article><span class="feature-symbol">↻</span><h3>RAW Learn & Replay</h3><p data-en="Capture unknown RF signals, store them in slots and replay them when needed." data-hu="Ismeretlen RF jelek rögzítése, slotokba mentése és szükség szerinti visszajátszása.">Capture unknown RF signals, store them in slots and replay them when needed.</p></article>
+        <article><span class="feature-symbol">◎</span><h3 data-en="Universal RX Slots" data-hu="Univerzális RX slotok">Universal RX Slots</h3><p data-en="Turn recognised RF events into reusable MQTT and Home Assistant entities." data-hu="Alakítsd a felismert RF eseményeket újrahasználható MQTT- és Home Assistant-entitásokká.">Turn recognised RF events into reusable MQTT and Home Assistant entities.</p></article>
+        <article><span class="feature-symbol">⌂</span><h3>MQTT & Home Assistant</h3><p data-en="Automatic Discovery, local topics and direct integration into automations." data-hu="Automatikus Discovery, helyi topicok és közvetlen integráció az automatizmusokba.">Automatic Discovery, local topics and direct integration into automations.</p></article>
+        <article><span class="feature-symbol">⇧</span><h3 data-en="OTA, Backup & Restore" data-hu="OTA, mentés és visszaállítás">OTA, Backup & Restore</h3><p data-en="Update the firmware and protect the complete device configuration without dismantling the hardware." data-hu="Frissítsd a firmware-t, és védd a teljes eszközkonfigurációt a hardver szétszerelése nélkül.">Update the firmware and protect the complete device configuration without dismantling the hardware.</p></article>
+        <article><span class="feature-symbol">◫</span><h3 data-en="433 / 868 MHz Selection" data-hu="433 / 868 MHz választás">433 / 868 MHz Selection</h3><p data-en="Select the operating band in Settings when using the matching CC1101 module and antenna." data-hu="Válaszd ki a működési sávot a Settings oldalon a megfelelő CC1101 modul és antenna használatakor.">Select the operating band in Settings when using the matching CC1101 module and antenna.</p></article>
+        <article><span class="feature-symbol">⌘</span><h3 data-en="Developer Analyzer Mode" data-hu="Fejlesztői Analyzer mód">Developer Analyzer Mode</h3><p data-en="An exclusive high-detail analysis mode built specifically for the limits of the ESP8266 generation." data-hu="Exkluzív, részletes elemzési mód, amelyet kifejezetten az ESP8266 generáció korlátaihoz alakítottunk.">An exclusive high-detail analysis mode built specifically for the limits of the ESP8266 generation.</p></article>
+      </div>
+    </section>
+
+    <section id="roadmap" class="section-shell content-section future-section">
+      <div class="future-intro">
+        <span class="section-kicker" data-en="Looking ahead" data-hu="A következő generáció">Looking ahead</span>
+        <h2 data-en="OpenRF Platform ESP32 v2" data-hu="OpenRF Platform ESP32 v2">OpenRF Platform ESP32 v2</h2>
+        <p data-en="Development now moves to a native ESP32 architecture. The objective is not simply to port the existing firmware, but to build a substantially more capable RF automation platform without the memory limitations of the ESP8266." data-hu="A fejlesztés most natív ESP32 architektúrára vált. A cél nem a meglévő firmware egyszerű átültetése, hanem egy lényegesen nagyobb képességű RF automatizálási platform létrehozása az ESP8266 memóriakorlátai nélkül.">Development now moves to a native ESP32 architecture. The objective is not simply to port the existing firmware, but to build a substantially more capable RF automation platform without the memory limitations of the ESP8266.</p>
+      </div>
+      <div class="future-grid">
+        <article><strong>2× CC1101</strong><h3 data-en="Dual-radio architecture" data-hu="Két rádiós architektúra">Dual-radio architecture</h3><p data-en="Dedicated 433 MHz and 868 MHz radios operating within the same OpenRF node." data-hu="Külön 433 MHz-es és 868 MHz-es rádió ugyanabban az OpenRF egységben.">Dedicated 433 MHz and 868 MHz radios operating within the same OpenRF node.</p></article>
+        <article><strong>ESP32</strong><h3 data-en="More memory and performance" data-hu="Több memória és teljesítmény">More memory and performance</h3><p data-en="Larger protocol capacity, expanded Learn and Analyzer functions, and improved multitasking." data-hu="Nagyobb protokollkapacitás, kibővített Learn és Analyzer funkciók, valamint fejlettebb többfeladatos működés.">Larger protocol capacity, expanded Learn and Analyzer functions, and improved multitasking.</p></article>
+        <article><strong>LoRa</strong><h3 data-en="Long-range node communication" data-hu="Nagy hatótávú csomópont-kommunikáció">Long-range node communication</h3><p data-en="Direct OpenRF-to-OpenRF communication over long distances without depending on Wi-Fi." data-hu="Közvetlen OpenRF–OpenRF kommunikáció nagy távolságon, Wi-Fi kapcsolat nélkül.">Direct OpenRF-to-OpenRF communication over long distances without depending on Wi-Fi.</p></article>
+      </div>
+    </section>
+
+    <section class="section-shell content-section lora-section">
+      <div class="section-heading split-heading">
+        <div><span class="section-kicker">LoRa</span><h2 data-en="Distributed RF automation beyond Wi-Fi." data-hu="Elosztott RF automatizálás a Wi-Fi hatótávján túl.">Distributed RF automation beyond Wi-Fi.</h2></div>
+        <p class="section-summary" data-en="The concept connects local physical inputs, long-range LoRa links, RF transmitters, relay outputs and Home Assistant within one platform." data-hu="A koncepció egyetlen platformban kapcsolja össze a helyi fizikai bemeneteket, a nagy hatótávú LoRa kapcsolatot, az RF adást, a relékimeneteket és a Home Assistantot.">The concept connects local physical inputs, long-range LoRa links, RF transmitters, relay outputs and Home Assistant within one platform.</p>
+      </div>
+      <div class="lora-flow-grid">
+        <article class="lora-flow">
+          <div class="flow-node"><small data-en="Input" data-hu="Bemenet">Input</small><strong data-en="Physical button" data-hu="Fizikai gomb">Physical button</strong></div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-node active"><small>OpenRF</small><strong>Node A</strong></div>
+          <span class="flow-link">LoRa</span>
+          <div class="flow-node active"><small>OpenRF</small><strong>Node B</strong></div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-node"><small data-en="Output" data-hu="Kimenet">Output</small><strong data-en="Relay control" data-hu="Relévezérlés">Relay control</strong></div>
+        </article>
+        <article class="lora-flow">
+          <div class="flow-node"><small data-en="Input" data-hu="Bemenet">Input</small><strong data-en="RF or physical button" data-hu="RF vagy fizikai gomb">RF or physical button</strong></div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-node active"><small>OpenRF</small><strong>Node A</strong></div>
+          <span class="flow-link">LoRa</span>
+          <div class="flow-node active"><small>OpenRF</small><strong>Node B</strong></div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-node"><small data-en="Output" data-hu="Kimenet">Output</small><strong>433 / 868 MHz RF</strong></div>
+        </article>
+      </div>
+      <div class="application-tags">
+        <span data-en="Remote relay control" data-hu="Távoli relévezérlés">Remote relay control</span><span data-en="Building-to-building links" data-hu="Épületek közötti kapcsolat">Building-to-building links</span><span data-en="Garden automation" data-hu="Kerti automatizálás">Garden automation</span><span data-en="Industrial and agricultural control" data-hu="Ipari és mezőgazdasági vezérlés">Industrial and agricultural control</span><span data-en="Long-range sensor networks" data-hu="Nagy hatótávú szenzorhálózatok">Long-range sensor networks</span>
+      </div>
     </section>
 
     <section id="community" class="section-shell content-section">
       <div class="section-heading split-heading">
-        <div><span class="section-kicker" data-en="Community Hub" data-hu="Közösségi központ">Community Hub</span><h2 data-en="A place to ask, help and collaborate." data-hu="Egy hely kérdezni, segíteni és együttműködni.">A place to ask, help and collaborate.</h2></div>
+        <div><span class="section-kicker" data-en="Community Hub" data-hu="Közösségi központ">Community Hub</span><h2 data-en="Share projects and help shape the platform." data-hu="Oszd meg a projektedet, és segíts alakítani a platform jövőjét.">Share projects and help shape the platform.</h2></div>
         <a class="text-link" href="community.html" data-en="Open Community Hub →" data-hu="Közösségi központ megnyitása →">Open Community Hub →</a>
       </div>
-      <div class="community-layout" id="community-preview">
+      <div class="community-layout">
         <div class="community-feed">
-          <article class="feed-item"><span class="feed-icon">💬</span><div><small data-en="New discussion" data-hu="Új beszélgetés">New discussion</small><h3 data-en="How can I improve RAW signal matching?" data-hu="Hogyan javíthatom a RAW jelillesztést?">How can I improve RAW signal matching?</h3><p data-en="Installation Help · 12 minutes ago" data-hu="Telepítési segítség · 12 perce">Installation Help · 12 minutes ago</p></div></article>
-          <article class="feed-item"><span class="feed-icon">🚀</span><div><small data-en="New community project" data-hu="Új közösségi projekt">New community project</small><h3 data-en="433 MHz RGB Pool Light Controller" data-hu="433 MHz-es RGB medencelámpa-vezérlő">433 MHz RGB Pool Light Controller</h3><p data-en="Lighting · Home Assistant · ESP8266" data-hu="Világítás · Home Assistant · ESP8266">Lighting · Home Assistant · ESP8266</p></div></article>
-          <article class="feed-item"><span class="feed-icon">💡</span><div><small data-en="Feature request" data-hu="Funkciójavaslat">Feature request</small><h3 data-en="ESP32 dual-radio support" data-hu="ESP32 két rádiós támogatás">ESP32 dual-radio support</h3><p data-en="Planned · Community voting will be available soon" data-hu="Tervezett · Hamarosan közösségi szavazással">Planned · Community voting will be available soon</p></div></article>
-          <article class="feed-item"><span class="feed-icon">🐞</span><div><small data-en="Bug report" data-hu="Hibajelentés">Bug report</small><h3 data-en="LittleFS WebUI missing after first flash" data-hu="Hiányzó LittleFS WebUI az első feltöltés után">LittleFS WebUI missing after first flash</h3><p data-en="Resolved in documentation" data-hu="Dokumentációban megoldva">Resolved in documentation</p></div></article>
+          <article class="feed-item"><span class="feed-icon">💬</span><div><small data-en="Ask" data-hu="Kérdezz">Ask</small><h3 data-en="Get help with installation and RF analysis" data-hu="Kérj segítséget a telepítéshez és az RF elemzéshez">Get help with installation and RF analysis</h3><p data-en="Discuss hardware, firmware, protocols and Home Assistant integration." data-hu="Beszélgess hardverről, firmware-ről, protokollokról és Home Assistant integrációról.">Discuss hardware, firmware, protocols and Home Assistant integration.</p></div></article>
+          <article class="feed-item"><span class="feed-icon">🚀</span><div><small data-en="Share" data-hu="Oszd meg">Share</small><h3 data-en="Show what you built with OpenRF" data-hu="Mutasd meg, mit építettél az OpenRF-fel">Show what you built with OpenRF</h3><p data-en="Document real installations, automations and creative RF solutions." data-hu="Dokumentálj valós telepítéseket, automatizmusokat és kreatív RF megoldásokat.">Document real installations, automations and creative RF solutions.</p></div></article>
+          <article class="feed-item"><span class="feed-icon">💡</span><div><small data-en="Contribute" data-hu="Járulj hozzá">Contribute</small><h3 data-en="Suggest protocols and future capabilities" data-hu="Javasolj protokollokat és jövőbeli funkciókat">Suggest protocols and future capabilities</h3><p data-en="Feedback from real users directly influences the ESP32 generation." data-hu="A valódi felhasználói visszajelzések közvetlenül alakítják az ESP32 generációt.">Feedback from real users directly influences the ESP32 generation.</p></div></article>
         </div>
         <aside class="community-actions">
-          <h3 data-en="Start participating" data-hu="Kapcsolódj be">Start participating</h3>
-          <a href="community.html#questions" class="action-card"><span>?</span><div><strong data-en="Ask a question" data-hu="Kérdezz">Ask a question</strong><small data-en="Get installation or RF help" data-hu="Kérj telepítési vagy RF segítséget">Get installation or RF help</small></div></a>
-          <a href="community.html#ideas" class="action-card"><span>💡</span><div><strong data-en="Suggest a feature" data-hu="Javasolj funkciót">Suggest a feature</strong><small data-en="Help shape the roadmap" data-hu="Formáld az ütemtervet">Help shape the roadmap</small></div></a>
-          <a href="community.html#discussions" class="action-card"><span>🐞</span><div><strong data-en="Report a bug" data-hu="Jelents hibát">Report a bug</strong><small data-en="Make OpenRF more reliable" data-hu="Tedd megbízhatóbbá az OpenRF-et">Make OpenRF more reliable</small></div></a>
-          <p class="preview-note" data-en="The Community Hub now uses Cloudflare Pages Functions and D1 for shared posts, replies and idea votes. GitHub sign-in protects posting, replies and voting while reading remains public." data-hu="A Community Hub már Cloudflare Pages Functions és D1 segítségével tárolja a közös bejegyzéseket, válaszokat és ötletszavazatokat. A GitHub-bejelentkezés védi a bejegyzéseket, válaszokat és szavazást, miközben az olvasás nyilvános marad.">The Community Hub now uses Cloudflare Pages Functions and D1 for shared posts, replies and idea votes. GitHub sign-in protects posting, replies and voting while reading remains public.</p>
+          <h3 data-en="Join the community" data-hu="Csatlakozz a közösséghez">Join the community</h3>
+          <a href="community.html#questions" class="action-card"><span>?</span><div><strong data-en="Ask a question" data-hu="Kérdezz">Ask a question</strong><small data-en="Installation and troubleshooting" data-hu="Telepítés és hibakeresés">Installation and troubleshooting</small></div></a>
+          <a href="community.html#projects" class="action-card"><span>＋</span><div><strong data-en="Share a project" data-hu="Projekt megosztása">Share a project</strong><small data-en="Show your OpenRF build" data-hu="Mutasd meg az OpenRF projektedet">Show your OpenRF build</small></div></a>
+          <a href="community.html#ideas" class="action-card"><span>◇</span><div><strong data-en="Suggest an idea" data-hu="Ötlet javaslata">Suggest an idea</strong><small data-en="Help define the roadmap" data-hu="Segíts alakítani az ütemtervet">Help define the roadmap</small></div></a>
         </aside>
       </div>
     </section>
 
-    <section id="showcase" class="showcase-section">
-      <div class="section-shell content-section">
-        <div class="section-heading split-heading"><div><span class="section-kicker" data-en="Built with OpenRF" data-hu="OpenRF-fel épült">Built with OpenRF</span><h2 data-en="Real projects. Real ideas. Real makers." data-hu="Valódi projektek. Valódi ötletek. Valódi makerek.">Real projects. Real ideas. Real makers.</h2></div><a class="button secondary small" href="#" data-en="Submit your project" data-hu="Projekt beküldése">Submit your project</a></div>
-        <div class="project-grid">
-          <article class="project-card featured-project"><div class="project-visual pool-light"><span>433 MHz</span></div><div class="project-body"><div class="project-tags"><span>ESP8266</span><span>CC1101</span><span>Home Assistant</span></div><h3 data-en="RGB Pool Light Controller" data-hu="RGB medencelámpa-vezérlő">RGB Pool Light Controller</h3><p data-en="The project that started OpenRF Platform: learning and replaying a proprietary 433 MHz pool-light remote." data-hu="A projekt, amelyből az OpenRF Platform megszületett: egy saját 433 MHz-es medencelámpa-távirányító tanítása és visszajátszása.">The project that started OpenRF Platform: learning and replaying a proprietary 433 MHz pool-light remote.</p><a href="#story" class="text-link" data-en="Read the build story →" data-hu="Az építés története →">Read the build story →</a></div></article>
-          <article class="project-card placeholder-project"><div class="placeholder-icon">＋</div><h3 data-en="Your project could be here" data-hu="Itt lehet a te projekted">Your project could be here</h3><p data-en="Share what you built and help inspire the next OpenRF maker." data-hu="Oszd meg, mit építettél, és inspiráld a következő OpenRF makert.">Share what you built and help inspire the next OpenRF maker.</p></article>
-          <article class="project-card placeholder-project"><div class="placeholder-icon">⌂</div><h3 data-en="Home Assistant integrations" data-hu="Home Assistant integrációk">Home Assistant integrations</h3><p data-en="Automation examples, dashboards and practical RF solutions from the community." data-hu="Automatizálási példák, dashboardok és gyakorlati RF megoldások a közösségtől.">Automation examples, dashboards and practical RF solutions from the community.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section id="story" class="section-shell content-section story-section">
-      <div class="story-marker">01</div>
-      <div><span class="section-kicker" data-en="OpenRF Story" data-hu="OpenRF történet">OpenRF Story</span><h2 data-en="How a pool light became an open RF platform." data-hu="Hogyan lett egy medencelámpából nyílt RF platform?">How a pool light became an open RF platform.</h2><p data-en="OpenRF Platform began with a simple real-world problem: controlling a 433 MHz RGB pool light without relying on its original remote. The solution evolved from a single-purpose controller into a reusable gateway with RAW learning, replay, MQTT, Home Assistant Discovery, OTA updates and a built-in WebUI." data-hu="Az OpenRF Platform egy egyszerű, valós problémából indult: egy 433 MHz-es RGB medencelámpa vezérléséből az eredeti távirányító nélkül. Az egycélú vezérlőből fokozatosan újrahasználható gateway lett RAW tanítással, visszajátszással, MQTT-vel, Home Assistant Discoveryvel, OTA frissítéssel és beépített WebUI-val.">OpenRF Platform began with a simple real-world problem: controlling a 433 MHz RGB pool light without relying on its original remote. The solution evolved from a single-purpose controller into a reusable gateway with RAW learning, replay, MQTT, Home Assistant Discovery, OTA updates and a built-in WebUI.</p></div>
-    </section>
-
     <section id="documentation" class="section-shell content-section">
-      <div class="section-heading"><span class="section-kicker" data-en="Documentation" data-hu="Dokumentáció">Documentation</span><h2 data-en="From first flash to advanced RF workflows." data-hu="Az első feltöltéstől a haladó RF munkafolyamatokig.">From first flash to advanced RF workflows.</h2></div>
+      <div class="section-heading"><span class="section-kicker" data-en="Documentation" data-hu="Dokumentáció">Documentation</span><h2 data-en="From wiring to advanced RF workflows." data-hu="A bekötéstől a haladó RF munkafolyamatokig.">From wiring to advanced RF workflows.</h2></div>
       <div class="docs-grid">
-        <a class="doc-card" href="installation.html"><span>01</span><h3 data-en="Installation Guide" data-hu="Telepítési útmutató">Installation Guide</h3><p data-en="Source and precompiled installation steps." data-hu="Forráskódos és előre fordított telepítési lépések.">Source and precompiled installation steps.</p></a>
-        <article class="doc-card"><span>02</span><h3 data-en="Getting Started" data-hu="Első lépések">Getting Started</h3><p data-en="First boot, AP mode, Wi-Fi and MQTT configuration." data-hu="Első indítás, AP mód, Wi-Fi és MQTT beállítás.">First boot, AP mode, Wi-Fi and MQTT configuration.</p></article>
-        <article class="doc-card"><span>03</span><h3 data-en="RF Learn & Replay" data-hu="RF tanítás és visszajátszás">RF Learn & Replay</h3><p data-en="Capture, store and replay RAW RF signals." data-hu="RAW RF jelek rögzítése, tárolása és visszajátszása.">Capture, store and replay RAW RF signals.</p></article>
-        <article class="doc-card"><span>04</span><h3>Home Assistant</h3><p data-en="MQTT Discovery, RX slots and automation examples." data-hu="MQTT Discovery, RX slotok és automatizálási példák.">MQTT Discovery, RX slots and automation examples.</p></article>
-      </div>
-    </section>
-
-    <section id="roadmap" class="section-shell content-section">
-      <div class="section-heading"><span class="section-kicker" data-en="Development path" data-hu="Fejlesztési irány">Development path</span><h2 data-en="Stable firmware. Growing ecosystem." data-hu="Stabil firmware. Növekvő ökoszisztéma.">Stable firmware. Growing ecosystem.</h2></div>
-      <div class="roadmap">
-        <article class="done"><span>✓</span><small data-en="Released" data-hu="Kiadva">Released</small><h3>v1.1.0 Stable</h3><p data-en="ESP8266 + CC1101, WebUI, MQTT, Home Assistant, OTA, backup and RAW RF workflow." data-hu="ESP8266 + CC1101, WebUI, MQTT, Home Assistant, OTA, mentés és RAW RF munkafolyamat.">ESP8266 + CC1101, WebUI, MQTT, Home Assistant, OTA, backup and RAW RF workflow.</p></article>
-        <article><span>2</span><small data-en="Next" data-hu="Következő">Next</small><h3 data-en="Community Hub v1.3" data-hu="Community Hub v1.3">Community Hub v1.3</h3><p data-en="About, Showcase, discussions, bug reports, feature requests and bilingual content." data-hu="About, Showcase, beszélgetések, hibajelentések, funkciójavaslatok és kétnyelvű tartalom.">About, Showcase, discussions, bug reports, feature requests and bilingual content.</p></article>
-        <article><span>3</span><small data-en="Planned" data-hu="Tervezett">Planned</small><h3>ESP32 + Dual Radio</h3><p data-en="Multi-band hardware, expanded protocols and a more capable platform architecture." data-hu="Többfrekvenciás hardver, bővített protokollok és fejlettebb platformarchitektúra.">Multi-band hardware, expanded protocols and a more capable platform architecture.</p></article>
+        <a class="doc-card" href="installation.html"><span>01</span><h3 data-en="Installation & Wiring" data-hu="Telepítés és bekötés">Installation & Wiring</h3><p data-en="Complete ESP8266 NodeMCU V2 + CC1101 wiring diagram and installation steps." data-hu="Teljes ESP8266 NodeMCU V2 + CC1101 bekötési ábra és telepítési lépések.">Complete ESP8266 NodeMCU V2 + CC1101 wiring diagram and installation steps.</p></a>
+        <article class="doc-card"><span>02</span><h3 data-en="Getting Started" data-hu="Első lépések">Getting Started</h3><p data-en="First boot, AP mode, Wi-Fi, MQTT and Home Assistant configuration." data-hu="Első indítás, AP mód, Wi-Fi, MQTT és Home Assistant beállítás.">First boot, AP mode, Wi-Fi, MQTT and Home Assistant configuration.</p></article>
+        <article class="doc-card"><span>03</span><h3 data-en="RF Learn & Analyzer" data-hu="RF tanítás és Analyzer">RF Learn & Analyzer</h3><p data-en="Capture, inspect, store and replay native or unknown RF signals." data-hu="Natív vagy ismeretlen RF jelek rögzítése, vizsgálata, mentése és visszajátszása.">Capture, inspect, store and replay native or unknown RF signals.</p></article>
+        <article class="doc-card"><span>04</span><h3>Home Assistant</h3><p data-en="MQTT Discovery, RX Slots and practical automation examples." data-hu="MQTT Discovery, RX slotok és gyakorlati automatizálási példák.">MQTT Discovery, RX Slots and practical automation examples.</p></article>
       </div>
     </section>
 
     <section id="downloads" class="section-shell content-section">
-      <div class="download-panel">
-        <div><span class="section-kicker" data-en="Latest stable release" data-hu="Legfrissebb stabil kiadás">Latest stable release</span><h2>OpenRF Platform v1.1.0</h2><p data-en="Download the complete source package or flash the precompiled firmware and LittleFS images." data-hu="Töltsd le a teljes forráscsomagot, vagy használd az előre fordított firmware- és LittleFS-fájlokat.">Download the complete source package or flash the precompiled firmware and LittleFS images.</p><p class="download-meta">SHA-256<br><code>a1418018cc33cbde82f95a2001f91b394f8fd7d15490ec4fd1b71e6caccdf342</code></p></div>
+      <div class="download-panel final-download-panel">
+        <div><span class="section-kicker" data-en="Current stable release" data-hu="Jelenlegi stabil kiadás">Current stable release</span><h2>OpenRF Platform v1.2.0 Final</h2><p data-en="The final feature release for ESP8266. Download the complete release package or the precompiled firmware and LittleFS images directly from the OpenRF Platform website." data-hu="Az ESP8266 utolsó funkcionális kiadása. Töltsd le a teljes kiadási csomagot vagy az előre fordított firmware- és LittleFS-fájlokat közvetlenül az OpenRF Platform weboldaláról.">The final feature release for ESP8266. Download the complete release package or the precompiled firmware and LittleFS images directly from the OpenRF Platform website.</p><p class="release-support" data-en="Future ESP8266 updates: critical bug fixes only, if required." data-hu="Jövőbeni ESP8266 frissítések: kizárólag szükséges kritikus hibajavítások.">Future ESP8266 updates: critical bug fixes only, if required.</p></div>
         <div class="download-actions">
-          <a class="button primary" href="/downloads/OpenRF-Platform-v1.1.0.zip" download data-en="Source package" data-hu="Forráscsomag">Source package</a>
-          <a class="button secondary" href="/downloads/firmware.bin" download>firmware.bin</a>
-          <a class="button secondary" href="/downloads/littlefs.bin" download>littlefs.bin</a>
-          <a class="text-link center" href="/downloads/SHA256SUMS.txt" data-en="View checksums" data-hu="Ellenőrzőösszegek">View checksums</a>
+          <a class="button primary" href="downloads/OpenRF-Platform-v1.2.0.zip" target="_blank" rel="noopener" data-en="Download OpenRF Platform v1.2.0 (.zip) " data-hu="v1.2.0 kiadások megnyitása">Download OpenRF Platform v1.2.0 (.zip) </a>
+          <a class="button secondary" href="downloads/firmware.bin" download>firmware.bin</a>
+          <a class="button secondary" href="downloads/littlefs.bin" download>littlefs.bin</a>
+          <a class="button secondary"
+href="https://github.com/Krissz55555/OpenRF-Platform/releases/tag/v1.2.0"
+target="_blank"
+rel="noopener"
+data-en="View GitHub Release"
+data-hu="GitHub kiadás megnyitása">
+View GitHub Release
+</a>
+<a class="text-link center" href="installation.html" data-en="Read the installation guide" data-hu="Telepítési útmutató megnyitása">Read the installation guide</a>
         </div>
       </div>
     </section>
 
     <section class="section-shell manifesto">
-      <p data-en="Every contribution matters. Every project inspires someone. Every idea moves OpenRF Platform forward." data-hu="Minden hozzájárulás számít. Minden megépített projekt inspirál valakit. Minden új ötlet előrébb viszi az OpenRF Platformot.">Every contribution matters. Every project inspires someone. Every idea moves OpenRF Platform forward.</p>
-      <strong data-en="Welcome, Maker. Let's build together." data-hu="Üdv, Maker! Építsünk együtt.">Welcome, Maker. Let's build together.</strong>
+      <p data-en="The ESP8266 release series established the foundation. The ESP32 generation will build upon it." data-hu="Az ESP8266 kiadássorozat megteremtette az alapokat. Az ESP32 generáció ezekre épít tovább.">The ESP8266 release series established the foundation. The ESP32 generation will build upon it.</p>
+      <strong data-en="Open source. Community-driven. Built for practical RF automation." data-hu="Nyílt forráskódú. Közösségi. Gyakorlati RF automatizáláshoz készült.">Open source. Community-driven. Built for practical RF automation.</strong>
     </section>
-  
+
     <section class="github-section section-shell">
       <article class="github-card">
-        <div><span class="section-kicker">GitHub</span><h2 data-en="Open source, open development." data-hu="Nyílt forráskód, nyílt fejlesztés.">Open source, open development.</h2><p data-en="Browse the source code, follow releases, report technical issues or contribute to OpenRF Platform." data-hu="Nézd meg a forráskódot, kövesd a kiadásokat, jelents technikai hibát, vagy járulj hozzá az OpenRF Platform fejlesztéséhez.">Browse the source code, follow releases, report technical issues or contribute to OpenRF Platform.</p></div>
+        <div><span class="section-kicker">GitHub</span><h2 data-en="Open source, open development." data-hu="Nyílt forráskód, nyílt fejlesztés.">Open source, open development.</h2><p data-en="Browse the source code, follow releases, report technical issues or contribute to the next generation of OpenRF Platform." data-hu="Nézd meg a forráskódot, kövesd a kiadásokat, jelents technikai hibát, vagy járulj hozzá az OpenRF Platform következő generációjához.">Browse the source code, follow releases, report technical issues or contribute to the next generation of OpenRF Platform.</p></div>
         <div class="github-actions"><a class="button primary" href="https://github.com/Krissz55555/OpenRF-Platform" target="_blank" rel="noopener" data-en="Open GitHub repository" data-hu="GitHub repository megnyitása">Open GitHub repository</a><a class="button secondary" href="https://github.com/Krissz55555/OpenRF-Platform/issues" target="_blank" rel="noopener" data-en="Report a technical issue" data-hu="Technikai hiba jelentése">Report a technical issue</a></div>
       </article>
     </section>
-
   </main>
 
   <footer class="site-footer section-shell">
     <a class="brand footer-brand" href="#top"><img src="assets/openrf-platform-mark.png" alt="" width="32" height="32"><span><strong>OpenRF</strong><small>Platform</small></span></a>
-    <p data-en="Built by the community. Powered by Open Source." data-hu="A közösség építi. A nyílt forráskód hajtja.">Built by the community. Powered by Open Source.</p>
+    <p data-en="MIT Licensed · Open Source · Built for Home Assistant" data-hu="MIT licenc · Nyílt forráskód · Home Assistanthoz tervezve">MIT Licensed · Open Source · Built for Home Assistant</p>
     <a class="footer-github" href="https://github.com/Krissz55555/OpenRF-Platform" target="_blank" rel="noopener">GitHub ↗</a>
     <p>© <span id="year"></span> OpenRF Platform</p>
   </footer>
