@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="OpenRF Platform — open-source RF gateway and automation platform for ESP8266, CC1101, MQTT and Home Assistant.">
+  <meta name="description" content="OpenRF Platform — open-source ESP32-S3 RF gateway and protocol-development platform with CC1101, RF Analyzer, MQTT and Home Assistant.">
   <meta name="theme-color" content="#07111f">
   <title>OpenRF Platform — Open Source RF Gateway & Automation Platform</title>
   <link rel="icon" href="assets/openrf-platform-mark.png" type="image/png">
@@ -31,23 +31,23 @@
   <main id="top">
     <section class="status-bar">
       <span class="status-dot"></span>
-      <p data-en="OpenRF Platform v1.2.0 Final is now available — the ESP8266 generation is feature complete." data-hu="Megjelent az OpenRF Platform v1.2.0 Final – az ESP8266-generáció funkcionálisan teljessé vált.">OpenRF Platform v1.2.0 Final is now available — the ESP8266 generation is feature complete.</p>
+      <p data-en="OpenRF Platform v2.0.0-beta.1 for ESP32-S3 is now available — the new generation is public." data-hu="Megjelent az OpenRF Platform v2.0.0-beta.1 ESP32-S3 kiadása – az új generáció már nyilvánosan elérhető.">OpenRF Platform v2.0.0-beta.1 for ESP32-S3 is now available — the new generation is public.</p>
     </section>
 
     <section class="hero section-shell hero-v144">
       <div class="hero-copy">
-        <div class="eyebrow"><span>ESP8266 Final</span><span>CC1101</span><span>433 / 868 MHz</span><span>MQTT</span><span>Home Assistant</span></div>
+        <div class="eyebrow"><span>ESP32-S3 Beta</span><span>Dual-Core</span><span>8 MB PSRAM</span><span>CC1101</span><span>Home Assistant</span></div>
         <h1>
           <span data-en="Open Source RF Gateway" data-hu="Nyílt forráskódú RF gateway">Open Source RF Gateway</span>
           <em data-en="& Automation Platform." data-hu="és automatizálási platform.">& Automation Platform.</em>
         </h1>
-        <p class="hero-lead" data-en="Build a complete ESP8266 + CC1101 RF gateway with native protocol support, RAW transmission, RF analysis, MQTT, Home Assistant Discovery and a modern local web interface." data-hu="Építs teljes értékű ESP8266 + CC1101 RF gatewayt natív protokolltámogatással, RAW átvitellel, RF elemzéssel, MQTT-vel, Home Assistant Discoveryvel és modern, helyi webes felülettel.">Build a complete ESP8266 + CC1101 RF gateway with native protocol support, RAW transmission, RF analysis, MQTT, Home Assistant Discovery and a modern local web interface.</p>
+        <p class="hero-lead" data-en="Build a faster ESP32-S3 + CC1101 RF gateway with dual-core radio processing, PSRAM-aware buffering, RAW Learn & Replay, RF analysis, MQTT and native Home Assistant integration." data-hu="Építs nagyobb teljesítményű ESP32-S3 + CC1101 RF gatewayt kétmagos rádiófeldolgozással, PSRAM-tudatos memóriakezeléssel, RAW tanítással és visszajátszással, RF elemzéssel, MQTT-vel és natív Home Assistant integrációval.">Build a faster ESP32-S3 + CC1101 RF gateway with dual-core radio processing, PSRAM-aware buffering, RAW Learn & Replay, RF analysis, MQTT and native Home Assistant integration.</p>
         <div class="hero-actions">
-          <a class="button primary" href="#downloads" data-en="Download v1.2.0" data-hu="v1.2.0 letöltése">Download v1.2.0</a>
-          <a class="button secondary" href="installation.html" data-en="Installation Guide" data-hu="Telepítési útmutató">Installation Guide</a>
+          <a class="button primary" href="#downloads" data-en="Download v2.0.0-beta.1" data-hu="v2.0.0-beta.1 letöltése">Download v2.0.0-beta.1</a>
+          <a class="button secondary" href="installation-esp32s3.html" data-en="Installation Guide" data-hu="Telepítési útmutató">Installation Guide</a>
           <a class="button secondary" href="https://github.com/Krissz55555/OpenRF-Platform" target="_blank" rel="noopener">GitHub ↗</a>
         </div>
-        <p class="microcopy" data-en="ESP8266 feature complete · Open source · Built for practical RF automation" data-hu="ESP8266 funkcionálisan teljes · Nyílt forráskód · Gyakorlati RF automatizáláshoz">ESP8266 feature complete · Open source · Built for practical RF automation</p>
+        <p class="microcopy" data-en="ESP32-S3 current generation · ESP8266 legacy stable · Open source" data-hu="ESP32-S3 jelenlegi generáció · ESP8266 stabil legacy ág · Nyílt forráskód">ESP32-S3 current generation · ESP8266 legacy stable · Open source</p>
       </div>
       <div class="hero-visual">
         <div class="official-logo-wrap"><img class="official-logo" src="assets/openrf-platform-logo.png" alt="OpenRF Platform"></div>
@@ -55,52 +55,52 @@
     </section>
 
     <section class="metrics section-shell" aria-label="Project highlights">
-      <article><strong>1.2.0</strong><span data-en="Final ESP8266 release" data-hu="Végleges ESP8266 kiadás">Final ESP8266 release</span></article>
-      <article><strong>30</strong><span data-en="RAW Learn slots" data-hu="RAW tanuló slot">RAW Learn slots</span></article>
-      <article><strong>433 / 868</strong><span data-en="MHz radio selection" data-hu="MHz frekvenciaválasztás">MHz radio selection</span></article>
+      <article><strong>2.0.0</strong><span data-en="ESP32-S3 beta generation" data-hu="ESP32-S3 béta generáció">ESP32-S3 beta generation</span></article>
+      <article><strong>2 cores</strong><span data-en="System + Radio Engine" data-hu="System + Radio Engine">System + Radio Engine</span></article>
+      <article><strong>8 MB</strong><span data-en="PSRAM available" data-hu="elérhető PSRAM">PSRAM available</span></article>
       <article><strong>100%</strong><span data-en="Open source" data-hu="Nyílt forráskód">Open source</span></article>
     </section>
 
     <section id="about" class="section-shell content-section about-grid">
       <div>
-        <span class="section-kicker" data-en="OpenRF Platform v1.2.0 Final" data-hu="OpenRF Platform v1.2.0 Final">OpenRF Platform v1.2.0 Final</span>
-        <h2 data-en="The ESP8266 platform is complete." data-hu="Az ESP8266 platform elkészült.">The ESP8266 platform is complete.</h2>
+        <span class="section-kicker" data-en="OpenRF Platform v2.0.0-beta.1" data-hu="OpenRF Platform v2.0.0-beta.1">OpenRF Platform v2.0.0-beta.1</span>
+        <h2 data-en="The ESP32-S3 generation is here." data-hu="Megérkezett az ESP32-S3 generáció.">The ESP32-S3 generation is here.</h2>
       </div>
       <div class="mission-card final-release-card">
-        <p data-en="OpenRF Platform v1.2.0 is the final feature release for the original ESP8266 + CC1101 architecture. What began as a simple RF gateway has evolved into a complete open-source platform for receiving, analysing, learning and transmitting RF signals." data-hu="Az OpenRF Platform v1.2.0 az eredeti ESP8266 + CC1101 architektúra utolsó funkcionális kiadása. Az egyszerű RF gatewayként induló projekt mára teljes, nyílt forráskódú platformmá fejlődött RF jelek vételéhez, elemzéséhez, tanításához és továbbításához.">OpenRF Platform v1.2.0 is the final feature release for the original ESP8266 + CC1101 architecture. What began as a simple RF gateway has evolved into a complete open-source platform for receiving, analysing, learning and transmitting RF signals.</p>
-        <p data-en="The ESP8266 implementation is now considered feature complete. Future releases for this platform will focus only on critical bug fixes if required." data-hu="Az ESP8266 megvalósítás mostantól funkcionálisan teljesnek tekinthető. A jövőbeni ESP8266 kiadások kizárólag szükséges, kritikus hibajavításokra koncentrálnak.">The ESP8266 implementation is now considered feature complete. Future releases for this platform will focus only on critical bug fixes if required.</p>
+        <p data-en="OpenRF Platform v2.0.0-beta.1 brings the proven RF gateway, Analyzer, RAW Learn & Replay, MQTT and Home Assistant feature set to ESP32-S3 N16R8. The new architecture adds dual-core task separation, 8 MB PSRAM support and significantly more processing and memory headroom." data-hu="Az OpenRF Platform v2.0.0-beta.1 a bevált RF gateway, Analyzer, RAW Learn & Replay, MQTT és Home Assistant funkciókat ESP32-S3 N16R8 alapra viszi. Az új architektúra kétmagos feladatmegosztást, 8 MB PSRAM támogatást és lényegesen nagyobb teljesítmény- és memóriatartalékot ad.">OpenRF Platform v2.0.0-beta.1 brings the proven RF gateway, Analyzer, RAW Learn & Replay, MQTT and Home Assistant feature set to ESP32-S3 N16R8. The new architecture adds dual-core task separation, 8 MB PSRAM support and significantly more processing and memory headroom.</p>
+        <p data-en="The ESP8266 v1.2.0 edition remains available as a feature-complete legacy release. The ESP32-S3 branch is now the default and the active development platform for future OpenRF expansion." data-hu="Az ESP8266 v1.2.0 kiadás továbbra is elérhető, funkcionálisan teljes legacy verzióként. Az ESP32-S3 ág lett az alapértelmezett és az OpenRF további fejlesztésének aktív platformja.">The ESP8266 v1.2.0 edition remains available as a feature-complete legacy release. The ESP32-S3 branch is now the default and the active development platform for future OpenRF expansion.</p>
       </div>
     </section>
 
     <section id="features" class="section-shell content-section">
       <div class="section-heading split-heading">
-        <div><span class="section-kicker" data-en="Feature highlights" data-hu="Fő funkciók">Feature highlights</span><h2 data-en="A complete RF toolkit in one platform." data-hu="Teljes RF eszköztár egyetlen platformban.">A complete RF toolkit in one platform.</h2></div>
-        <p class="section-summary" data-en="Designed for local operation, practical automation and direct Home Assistant integration." data-hu="Helyi működéshez, gyakorlati automatizáláshoz és közvetlen Home Assistant integrációhoz tervezve.">Designed for local operation, practical automation and direct Home Assistant integration.</p>
+        <div><span class="section-kicker" data-en="v2.0.0-beta.1 highlights" data-hu="v2.0.0-beta.1 fő funkciók">v2.0.0-beta.1 highlights</span><h2 data-en="The proven OpenRF feature set, now on ESP32-S3." data-hu="A bevált OpenRF funkciók most már ESP32-S3 alapon.">The proven OpenRF feature set, now on ESP32-S3.</h2></div>
+        <p class="section-summary" data-en="The first public ESP32-S3 beta preserves the existing RF workflow while adding dual-core execution, PSRAM-aware buffering and substantially more hardware headroom." data-hu="Az első nyilvános ESP32-S3 béta megtartja a meglévő RF munkafolyamatot, miközben kétmagos működést, PSRAM-tudatos pufferelést és lényegesen nagyobb hardvertartalékot ad.">The first public ESP32-S3 beta preserves the existing RF workflow while adding dual-core execution, PSRAM-aware buffering and substantially more hardware headroom.</p>
       </div>
       <div class="feature-grid-v144">
-        <article><span class="feature-symbol">📡</span><h3 data-en="Stable RF Gateway" data-hu="Stabil RF gateway">Stable RF Gateway</h3><p data-en="Reliable ESP8266 + CC1101 reception and transmission for everyday automation." data-hu="Megbízható ESP8266 + CC1101 vétel és adás mindennapi automatizálási feladatokra.">Reliable ESP8266 + CC1101 reception and transmission for everyday automation.</p></article>
-        <article><span class="feature-symbol">🔍</span><h3>RF Analyzer v2</h3><p data-en="Inspect received frames, timing data, RSSI and rejection reasons directly in the WebUI." data-hu="Vizsgáld a vett kereteket, időzítési adatokat, RSSI-t és elutasítási okokat közvetlenül a WebUI-ban.">Inspect received frames, timing data, RSSI and rejection reasons directly in the WebUI.</p></article>
-        <article><span class="feature-symbol">🧩</span><h3 data-en="Native Protocol Framework" data-hu="Natív protokollkeretrendszer">Native Protocol Framework</h3><p data-en="Structured protocol support with room for continued expansion and community contributions." data-hu="Strukturált protokolltámogatás, amely tovább bővíthető és közösségi fejlesztésekre is nyitott.">Structured protocol support with room for continued expansion and community contributions.</p></article>
-        <article><span class="feature-symbol">⚡</span><h3>NVKP01 Kinetic</h3><p data-en="Native recognition, learning and RX Slot support for the NVKP01 kinetic remote." data-hu="Natív felismerés, tanítás és RX Slot támogatás az NVKP01 kinetikus távirányítóhoz.">Native recognition, learning and RX Slot support for the NVKP01 kinetic remote.</p></article>
-        <article><span class="feature-symbol">↻</span><h3>RAW Learn & Replay</h3><p data-en="Capture unknown RF signals, store them in slots and replay them when needed." data-hu="Ismeretlen RF jelek rögzítése, slotokba mentése és szükség szerinti visszajátszása.">Capture unknown RF signals, store them in slots and replay them when needed.</p></article>
-        <article><span class="feature-symbol">◎</span><h3 data-en="Universal RX Slots" data-hu="Univerzális RX slotok">Universal RX Slots</h3><p data-en="Turn recognised RF events into reusable MQTT and Home Assistant entities." data-hu="Alakítsd a felismert RF eseményeket újrahasználható MQTT- és Home Assistant-entitásokká.">Turn recognised RF events into reusable MQTT and Home Assistant entities.</p></article>
-        <article><span class="feature-symbol">⌂</span><h3>MQTT & Home Assistant</h3><p data-en="Automatic Discovery, local topics and direct integration into automations." data-hu="Automatikus Discovery, helyi topicok és közvetlen integráció az automatizmusokba.">Automatic Discovery, local topics and direct integration into automations.</p></article>
-        <article><span class="feature-symbol">⇧</span><h3 data-en="OTA, Backup & Restore" data-hu="OTA, mentés és visszaállítás">OTA, Backup & Restore</h3><p data-en="Update the firmware and protect the complete device configuration without dismantling the hardware." data-hu="Frissítsd a firmware-t, és védd a teljes eszközkonfigurációt a hardver szétszerelése nélkül.">Update the firmware and protect the complete device configuration without dismantling the hardware.</p></article>
-        <article><span class="feature-symbol">◫</span><h3 data-en="433 / 868 MHz Selection" data-hu="433 / 868 MHz választás">433 / 868 MHz Selection</h3><p data-en="Select the operating band in Settings when using the matching CC1101 module and antenna." data-hu="Válaszd ki a működési sávot a Settings oldalon a megfelelő CC1101 modul és antenna használatakor.">Select the operating band in Settings when using the matching CC1101 module and antenna.</p></article>
-        <article><span class="feature-symbol">⌘</span><h3 data-en="Developer Analyzer Mode" data-hu="Fejlesztői Analyzer mód">Developer Analyzer Mode</h3><p data-en="An exclusive high-detail analysis mode built specifically for the limits of the ESP8266 generation." data-hu="Exkluzív, részletes elemzési mód, amelyet kifejezetten az ESP8266 generáció korlátaihoz alakítottunk.">An exclusive high-detail analysis mode built specifically for the limits of the ESP8266 generation.</p></article>
+        <article><span class="feature-symbol">⚙</span><h3 data-en="ESP32-S3 Dual-Core" data-hu="ESP32-S3 kétmagos működés">ESP32-S3 Dual-Core</h3><p data-en="FreeRTOS task separation keeps RF processing apart from the main application workload for smoother concurrent operation." data-hu="A FreeRTOS feladatmegosztás elkülöníti az RF feldolgozást a fő alkalmazási terheléstől a folyamatosabb párhuzamos működésért.">FreeRTOS task separation keeps RF processing apart from the main application workload for smoother concurrent operation.</p></article>
+        <article><span class="feature-symbol">▣</span><h3 data-en="8 MB PSRAM" data-hu="8 MB PSRAM">8 MB PSRAM</h3><p data-en="Large non-critical RAW, Learn and Analyzer work buffers can use PSRAM while time-critical RF data remains in internal RAM." data-hu="A nagyobb, nem időkritikus RAW, Learn és Analyzer munkapufferek PSRAM-ot használhatnak, miközben az időkritikus RF adatok belső RAM-ban maradnak.">Large non-critical RAW, Learn and Analyzer work buffers can use PSRAM while time-critical RF data remains in internal RAM.</p></article>
+        <article><span class="feature-symbol">🔍</span><h3>RF Analyzer v2</h3><p data-en="The Analyzer is non-exclusive on ESP32-S3 and can run alongside RX Slots, MQTT, Home Assistant and normal gateway operation." data-hu="Az Analyzer ESP32-S3-on már nem kizárólagos mód: az RX Slotokkal, MQTT-vel, Home Assistanttal és a normál gateway működéssel párhuzamosan is futhat.">The Analyzer is non-exclusive on ESP32-S3 and can run alongside RX Slots, MQTT, Home Assistant and normal gateway operation.</p></article>
+        <article><span class="feature-symbol">↻</span><h3>RAW Learn & Replay</h3><p data-en="Capture unknown RF pulse trains, preview them, save them to persistent TX slots and replay them when needed." data-hu="Ismeretlen RF impulzussorozatok rögzítése, előnézete, tartós TX slotokba mentése és szükség szerinti visszajátszása.">Capture unknown RF pulse trains, preview them, save them to persistent TX slots and replay them when needed.</p></article>
+        <article><span class="feature-symbol">◎</span><h3 data-en="Universal RX Slots" data-hu="Univerzális RX slotok">Universal RX Slots</h3><p data-en="Store decoded RF event identities and expose recognised events through MQTT and Home Assistant workflows." data-hu="Dekódolt RF eseményazonosítók tárolása és a felismert események továbbítása MQTT- és Home Assistant-munkafolyamatokba.">Store decoded RF event identities and expose recognised events through MQTT and Home Assistant workflows.</p></article>
+        <article><span class="feature-symbol">🧩</span><h3 data-en="Native Protocol Framework" data-hu="Natív protokollkeretrendszer">Native Protocol Framework</h3><p data-en="Structured protocol support includes native NVKP01 Kinetic decoding and provides a foundation for additional protocols." data-hu="A strukturált protokolltámogatás natív NVKP01 Kinetic dekódolást tartalmaz, és alapot ad további protokollokhoz.">Structured protocol support includes native NVKP01 Kinetic decoding and provides a foundation for additional protocols.</p></article>
+        <article><span class="feature-symbol">⌂</span><h3>MQTT & Home Assistant</h3><p data-en="Configurable MQTT, event publication and Home Assistant Discovery remain integrated into the local OpenRF workflow." data-hu="A konfigurálható MQTT, eseményközzététel és Home Assistant Discovery továbbra is a helyi OpenRF működés része.">Configurable MQTT, event publication and Home Assistant Discovery remain integrated into the local OpenRF workflow.</p></article>
+        <article><span class="feature-symbol">⇧</span><h3 data-en="OTA, Backup & Restore" data-hu="OTA, mentés és visszaállítás">OTA, Backup & Restore</h3><p data-en="Update firmware from the WebUI and protect device configuration with integrated backup and restore tools." data-hu="Firmware-frissítés a WebUI-ból, valamint az eszközkonfiguráció védelme beépített mentési és visszaállítási eszközökkel.">Update firmware from the WebUI and protect device configuration with integrated backup and restore tools.</p></article>
+        <article><span class="feature-symbol">◫</span><h3 data-en="433 / 868 MHz Selection" data-hu="433 / 868 MHz választás">433 / 868 MHz Selection</h3><p data-en="One active CC1101 can operate at 433.920 or 868.350 MHz when paired with hardware suitable for the selected band." data-hu="Egy aktív CC1101 működhet 433,920 vagy 868,350 MHz-en, a kiválasztott sávhoz megfelelő rádiómodullal és antennával.">One active CC1101 can operate at 433.920 or 868.350 MHz when paired with hardware suitable for the selected band.</p></article>
+        <article><span class="feature-symbol">◉</span><h3 data-en="Live System Diagnostics" data-hu="Élő rendszerdiagnosztika">Live System Diagnostics</h3><p data-en="The WebUI exposes CPU and memory information together with Flash, PSRAM and internal heap diagnostics." data-hu="A WebUI CPU- és memóriaadatokat, valamint Flash-, PSRAM- és belső heap-diagnosztikát jelenít meg.">The WebUI exposes CPU and memory information together with Flash, PSRAM and internal heap diagnostics.</p></article>
       </div>
     </section>
 
     <section id="roadmap" class="section-shell content-section future-section">
       <div class="future-intro">
-        <span class="section-kicker" data-en="Looking ahead" data-hu="A következő generáció">Looking ahead</span>
-        <h2 data-en="OpenRF Platform ESP32 v2" data-hu="OpenRF Platform ESP32 v2">OpenRF Platform ESP32 v2</h2>
-        <p data-en="Development now moves to a native ESP32 architecture. The objective is not simply to port the existing firmware, but to build a substantially more capable RF automation platform without the memory limitations of the ESP8266." data-hu="A fejlesztés most natív ESP32 architektúrára vált. A cél nem a meglévő firmware egyszerű átültetése, hanem egy lényegesen nagyobb képességű RF automatizálási platform létrehozása az ESP8266 memóriakorlátai nélkül.">Development now moves to a native ESP32 architecture. The objective is not simply to port the existing firmware, but to build a substantially more capable RF automation platform without the memory limitations of the ESP8266.</p>
+        <span class="section-kicker" data-en="Development roadmap" data-hu="Fejlesztési ütemterv">Development roadmap</span>
+        <h2 data-en="The ESP32-S3 foundation is here. Next comes multi-radio OpenRF." data-hu="Az ESP32-S3 alap elkészült. A következő lépés a több rádiós OpenRF.">The ESP32-S3 foundation is here. Next comes multi-radio OpenRF.</h2>
+        <p data-en="v2.0.0-beta.1 completes the first public ESP32-S3 port with one active CC1101. The next development stages expand the radio architecture while the beta receives further testing, Analyzer refinement and WebUI polish." data-hu="A v2.0.0-beta.1 az első nyilvános ESP32-S3 port egy aktív CC1101 rádióval. A következő fejlesztési lépések a rádiós architektúrát bővítik, miközben a béta további tesztelést, Analyzer-finomítást és WebUI-csiszolást kap.">v2.0.0-beta.1 completes the first public ESP32-S3 port with one active CC1101. The next development stages expand the radio architecture while the beta receives further testing, Analyzer refinement and WebUI polish.</p>
       </div>
       <div class="future-grid">
-        <article><strong>2× CC1101</strong><h3 data-en="Dual-radio architecture" data-hu="Két rádiós architektúra">Dual-radio architecture</h3><p data-en="Dedicated 433 MHz and 868 MHz radios operating within the same OpenRF node." data-hu="Külön 433 MHz-es és 868 MHz-es rádió ugyanabban az OpenRF egységben.">Dedicated 433 MHz and 868 MHz radios operating within the same OpenRF node.</p></article>
-        <article><strong>ESP32</strong><h3 data-en="More memory and performance" data-hu="Több memória és teljesítmény">More memory and performance</h3><p data-en="Larger protocol capacity, expanded Learn and Analyzer functions, and improved multitasking." data-hu="Nagyobb protokollkapacitás, kibővített Learn és Analyzer funkciók, valamint fejlettebb többfeladatos működés.">Larger protocol capacity, expanded Learn and Analyzer functions, and improved multitasking.</p></article>
-        <article><strong>LoRa</strong><h3 data-en="Long-range node communication" data-hu="Nagy hatótávú csomópont-kommunikáció">Long-range node communication</h3><p data-en="Direct OpenRF-to-OpenRF communication over long distances without depending on Wi-Fi." data-hu="Közvetlen OpenRF–OpenRF kommunikáció nagy távolságon, Wi-Fi kapcsolat nélkül.">Direct OpenRF-to-OpenRF communication over long distances without depending on Wi-Fi.</p></article>
+        <article><strong>Beta</strong><h3 data-en="Stabilisation and refinement" data-hu="Stabilizálás és finomítás">Stabilisation and refinement</h3><p data-en="Continue real-world testing and refine Analyzer responsiveness, RF behaviour and the ESP32-S3 WebUI before the first stable v2 release." data-hu="Valós használati tesztek folytatása, valamint az Analyzer reakcióidejének, az RF működésnek és az ESP32-S3 WebUI-nak a finomítása az első stabil v2 kiadás előtt.">Continue real-world testing and refine Analyzer responsiveness, RF behaviour and the ESP32-S3 WebUI before the first stable v2 release.</p></article>
+        <article><strong>2× CC1101</strong><h3 data-en="Simultaneous 433 + 868 MHz" data-hu="Egyidejű 433 + 868 MHz">Simultaneous 433 + 868 MHz</h3><p data-en="Add a second active CC1101 so dedicated 433 MHz and 868 MHz radios can operate in the same OpenRF node." data-hu="Második aktív CC1101 hozzáadása, hogy külön 433 MHz-es és 868 MHz-es rádió működhessen ugyanabban az OpenRF egységben.">Add a second active CC1101 so dedicated 433 MHz and 868 MHz radios can operate in the same OpenRF node.</p></article>
+        <article><strong>SX1276 / LoRa</strong><h3 data-en="Long-range OpenRF links" data-hu="Nagy hatótávú OpenRF kapcsolat">Long-range OpenRF links</h3><p data-en="Planned LoRa integration will provide a foundation for direct long-range communication between future OpenRF nodes." data-hu="A tervezett LoRa-integráció alapot ad a jövőbeli OpenRF csomópontok közötti közvetlen, nagy hatótávú kommunikációhoz.">Planned LoRa integration will provide a foundation for direct long-range communication between future OpenRF nodes.</p></article>
       </div>
     </section>
 
@@ -155,46 +155,57 @@
     </section>
 
     <section id="documentation" class="section-shell content-section">
-      <div class="section-heading"><span class="section-kicker" data-en="Documentation" data-hu="Dokumentáció">Documentation</span><h2 data-en="From wiring to advanced RF workflows." data-hu="A bekötéstől a haladó RF munkafolyamatokig.">From wiring to advanced RF workflows.</h2></div>
+      <div class="section-heading"><span class="section-kicker" data-en="Documentation" data-hu="Dokumentáció">Documentation</span><h2 data-en="From ESP32-S3 setup to advanced RF workflows." data-hu="Az ESP32-S3 telepítésétől a haladó RF munkafolyamatokig.">From ESP32-S3 setup to advanced RF workflows.</h2></div>
       <div class="docs-grid">
-        <a class="doc-card" href="installation.html"><span>01</span><h3 data-en="Installation & Wiring" data-hu="Telepítés és bekötés">Installation & Wiring</h3><p data-en="Complete ESP8266 NodeMCU V2 + CC1101 wiring diagram and installation steps." data-hu="Teljes ESP8266 NodeMCU V2 + CC1101 bekötési ábra és telepítési lépések.">Complete ESP8266 NodeMCU V2 + CC1101 wiring diagram and installation steps.</p></a>
-        <article class="doc-card"><span>02</span><h3 data-en="Getting Started" data-hu="Első lépések">Getting Started</h3><p data-en="First boot, AP mode, Wi-Fi, MQTT and Home Assistant configuration." data-hu="Első indítás, AP mód, Wi-Fi, MQTT és Home Assistant beállítás.">First boot, AP mode, Wi-Fi, MQTT and Home Assistant configuration.</p></article>
-        <article class="doc-card"><span>03</span><h3 data-en="RF Learn & Analyzer" data-hu="RF tanítás és Analyzer">RF Learn & Analyzer</h3><p data-en="Capture, inspect, store and replay native or unknown RF signals." data-hu="Natív vagy ismeretlen RF jelek rögzítése, vizsgálata, mentése és visszajátszása.">Capture, inspect, store and replay native or unknown RF signals.</p></article>
-        <article class="doc-card"><span>04</span><h3>Home Assistant</h3><p data-en="MQTT Discovery, RX Slots and practical automation examples." data-hu="MQTT Discovery, RX slotok és gyakorlati automatizálási példák.">MQTT Discovery, RX Slots and practical automation examples.</p></article>
+        <a class="doc-card" href="installation-esp32s3.html"><span>01</span><h3 data-en="ESP32-S3 Installation" data-hu="ESP32-S3 telepítés">ESP32-S3 Installation</h3><p data-en="Current v2.0.0-beta.1 requirements, build steps, firmware and LittleFS installation for the ESP32-S3 N16R8 platform." data-hu="A jelenlegi v2.0.0-beta.1 követelményei, build lépései, valamint firmware- és LittleFS-telepítése az ESP32-S3 N16R8 platformhoz.">Current v2.0.0-beta.1 requirements, build steps, firmware and LittleFS installation for the ESP32-S3 N16R8 platform.</p></a>
+        <a class="doc-card" href="installation.html"><span>02</span><h3 data-en="ESP8266 Legacy Guide" data-hu="ESP8266 korábbi útmutató">ESP8266 Legacy Guide</h3><p data-en="Installation and wiring guide for the feature-complete ESP8266 v1.2.0 generation." data-hu="Telepítési és bekötési útmutató a funkcionálisan teljes ESP8266 v1.2.0 generációhoz.">Installation and wiring guide for the feature-complete ESP8266 v1.2.0 generation.</p></a>
+        <article class="doc-card"><span>03</span><h3 data-en="RF Learn & Analyzer" data-hu="RF tanítás és Analyzer">RF Learn & Analyzer</h3><p data-en="Capture, inspect, store and replay RF signals with the non-exclusive ESP32-S3 Analyzer workflow." data-hu="RF jelek rögzítése, vizsgálata, mentése és visszajátszása az ESP32-S3 nem kizárólagos Analyzer munkafolyamatával.">Capture, inspect, store and replay RF signals with the non-exclusive ESP32-S3 Analyzer workflow.</p></article>
+        <article class="doc-card"><span>04</span><h3>Home Assistant</h3><p data-en="MQTT Discovery, RX Slots and practical automation workflows for the current platform." data-hu="MQTT Discovery, RX slotok és gyakorlati automatizálási munkafolyamatok a jelenlegi platformhoz.">MQTT Discovery, RX Slots and practical automation workflows for the current platform.</p></article>
       </div>
     </section>
 
     <section id="downloads" class="section-shell content-section">
-<div class="download-actions">
-  <a class="button primary"
-     href="/downloads/openrf-platform-v1.2.0.zip"
-     download
-     data-en="Download OpenRF Platform v1.2.0 (.zip)"
-     data-hu="OpenRF Platform v1.2.0 (.zip) letöltése">
-    Download OpenRF Platform v1.2.0 (.zip)
-  </a>
+      <div class="section-heading">
+        <span class="section-kicker" data-en="Downloads" data-hu="Letöltések">Downloads</span>
+        <h2 data-en="Choose your OpenRF generation." data-hu="Válaszd ki az OpenRF generációt.">Choose your OpenRF generation.</h2>
+        <p data-en="ESP32-S3 v2.0.0-beta.1 is the current development generation. ESP8266 v1.2.0 remains available as the feature-complete legacy stable release." data-hu="Az ESP32-S3 v2.0.0-beta.1 a jelenlegi fejlesztési generáció. Az ESP8266 v1.2.0 továbbra is elérhető, mint funkcionálisan teljes legacy stabil kiadás.">ESP32-S3 v2.0.0-beta.1 is the current development generation. ESP8266 v1.2.0 remains available as the feature-complete legacy stable release.</p>
+      </div>
 
-  <a class="button secondary"
-     href="/downloads/firmware.bin"
-     download>
-    firmware.bin
-  </a>
+      <div class="release-download-grid">
+        <article class="release-download-card current-release">
+          <div class="release-download-head">
+            <div>
+              <span class="release-badge beta" data-en="Current Beta" data-hu="Jelenlegi béta">Current Beta</span>
+              <h3>ESP32-S3 · v2.0.0-beta.1</h3>
+            </div>
+            <span class="release-hardware">N16R8 · CC1101</span>
+          </div>
+          <p data-en="The new dual-core OpenRF generation with 8 MB PSRAM. Firmware and LittleFS must be installed as a matching pair from this release." data-hu="Az OpenRF új, kétmagos generációja 8 MB PSRAM-mal. A firmware és a LittleFS fájlt mindig ebből a kiadásból, egymáshoz tartozó párként telepítsd.">The new dual-core OpenRF generation with 8 MB PSRAM. Firmware and LittleFS must be installed as a matching pair from this release.</p>
+          <div class="download-actions">
+            <a class="button primary" href="https://github.com/Krissz55555/OpenRF-Platform/releases/download/v2.0.0-beta.1/OpenRF-Platform-v2.0.0-beta.1-ESP32S3-firmware.bin" download data-en="ESP32-S3 firmware.bin" data-hu="ESP32-S3 firmware.bin">ESP32-S3 firmware.bin</a>
+            <a class="button secondary" href="https://github.com/Krissz55555/OpenRF-Platform/releases/download/v2.0.0-beta.1/OpenRF-Platform-v2.0.0-beta.1-ESP32S3-littlefs.bin" download data-en="ESP32-S3 littlefs.bin" data-hu="ESP32-S3 littlefs.bin">ESP32-S3 littlefs.bin</a>
+            <a class="button secondary" href="https://github.com/Krissz55555/OpenRF-Platform/releases/tag/v2.0.0-beta.1" target="_blank" rel="noopener" data-en="View v2.0.0-beta.1 release" data-hu="v2.0.0-beta.1 GitHub kiadás">View v2.0.0-beta.1 release</a>
+            <a class="text-link center" href="installation-esp32s3.html" data-en="ESP32-S3 installation guide" data-hu="ESP32-S3 telepítési útmutató">ESP32-S3 installation guide</a>
+          </div>
+        </article>
 
-  <a class="button secondary"
-     href="/downloads/littlefs.bin"
-     download>
-    littlefs.bin
-  </a>
-          <a class="button secondary"
-href="https://github.com/Krissz55555/OpenRF-Platform/releases/tag/v1.2.0"
-target="_blank"
-rel="noopener"
-data-en="View GitHub Release"
-data-hu="GitHub kiadás megnyitása">
-View GitHub Release
-</a>
-<a class="text-link center" href="installation.html" data-en="Read the installation guide" data-hu="Telepítési útmutató megnyitása">Read the installation guide</a>
-        </div>
+        <article class="release-download-card legacy-release">
+          <div class="release-download-head">
+            <div>
+              <span class="release-badge legacy" data-en="Legacy Stable" data-hu="Legacy stabil">Legacy Stable</span>
+              <h3>ESP8266 · v1.2.0</h3>
+            </div>
+            <span class="release-hardware">NodeMCU V2 · CC1101</span>
+          </div>
+          <p data-en="The feature-complete original OpenRF generation. Existing ESP8266 installations can continue using this stable release." data-hu="Az OpenRF eredeti, funkcionálisan teljes generációja. A meglévő ESP8266 telepítések továbbra is használhatják ezt a stabil kiadást.">The feature-complete original OpenRF generation. Existing ESP8266 installations can continue using this stable release.</p>
+          <div class="download-actions">
+            <a class="button primary" href="/downloads/openrf-platform-v1.2.0.zip" download data-en="Download v1.2.0 package (.zip)" data-hu="v1.2.0 csomag letöltése (.zip)">Download v1.2.0 package (.zip)</a>
+            <a class="button secondary" href="/downloads/firmware.bin" download>ESP8266 firmware.bin</a>
+            <a class="button secondary" href="/downloads/littlefs.bin" download>ESP8266 littlefs.bin</a>
+            <a class="button secondary" href="https://github.com/Krissz55555/OpenRF-Platform/releases/tag/v1.2.0" target="_blank" rel="noopener" data-en="View v1.2.0 release" data-hu="v1.2.0 GitHub kiadás">View v1.2.0 release</a>
+            <a class="text-link center" href="installation.html" data-en="ESP8266 legacy installation guide" data-hu="ESP8266 legacy telepítési útmutató">ESP8266 legacy installation guide</a>
+          </div>
+        </article>
       </div>
     </section>
 

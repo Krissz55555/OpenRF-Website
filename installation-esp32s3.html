@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="OpenRF Platform ESP32-S3 v2.0.0-beta.1 installation and CC1101 wiring guide.">
+  <meta name="theme-color" content="#07111f">
+  <title>OpenRF Platform — ESP32-S3 Installation Guide</title>
+  <link rel="icon" href="assets/openrf-platform-mark.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .install-page{max-width:980px;margin:0 auto;padding:56px 24px 80px}.install-page h1{font-size:clamp(2.2rem,5vw,4rem);margin:.2em 0}.install-page h2{margin-top:46px}.install-page h3{margin-top:28px}.install-lead{font-size:1.15rem;line-height:1.75;max-width:800px}.install-box{border:1px solid rgba(148,163,184,.24);border-radius:18px;padding:20px 22px;margin:24px 0;background:rgba(15,31,50,.55)}.install-note{border-left:4px solid #3ddc97}.install-warn{border-left:4px solid #f5b942}.install-page table{width:100%;border-collapse:collapse;margin:20px 0}.install-page th,.install-page td{text-align:left;padding:12px 14px;border-bottom:1px solid rgba(148,163,184,.22)}.install-page code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}.install-page ol,.install-page ul{line-height:1.8}.install-actions{display:flex;gap:12px;flex-wrap:wrap;margin:28px 0}.back-link{display:inline-block;margin-bottom:22px}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="OpenRF Platform home">
+      <img src="assets/openrf-platform-mark.png" alt="" width="42" height="42">
+      <span><strong>OpenRF</strong><small>Platform</small></span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu">☰</button>
+    <nav class="nav" id="mainNav">
+      <a data-en="Home" data-hu="Főoldal" href="index.html">Home</a>
+      <a data-en="Documentation" data-hu="Dokumentáció" href="index.html#documentation">Documentation</a>
+      <a data-en="Downloads" data-hu="Letöltések" href="index.html#downloads">Downloads</a>
+      <a class="github-nav" href="https://github.com/Krissz55555/OpenRF-Platform" target="_blank" rel="noopener">GitHub ↗</a>
+    </nav>
+    <button class="lang-toggle" id="langToggle" type="button" aria-label="Change language"><span class="active">EN</span><span>HU</span></button>
+  </header>
+
+  <main class="install-page">
+    <a class="text-link back-link" href="index.html#documentation" data-en="← Back to documentation" data-hu="← Vissza a dokumentációhoz">← Back to documentation</a>
+    <span class="section-kicker">ESP32-S3 · v2.0.0-beta.1</span>
+    <h1 data-en="ESP32-S3 Installation Guide" data-hu="ESP32-S3 telepítési útmutató">ESP32-S3 Installation Guide</h1>
+    <p class="install-lead" data-en="Hardware wiring and first-start instructions for the current OpenRF Platform ESP32-S3 N16R8 reference build. This guide intentionally contains no wiring image: use the pin table below." data-hu="Hardveres bekötési és első beüzemelési útmutató az OpenRF Platform jelenlegi ESP32-S3 N16R8 referencia-verziójához. Ez az útmutató szándékosan nem tartalmaz bekötési képet: az alábbi lábkiosztást használd.">Hardware wiring and first-start instructions for the current OpenRF Platform ESP32-S3 N16R8 reference build. This guide intentionally contains no wiring image: use the pin table below.</p>
+
+    <h2 data-en="Required hardware" data-hu="Szükséges hardver">Required hardware</h2>
+    <ul>
+      <li data-en="ESP32-S3 N16R8 (16 MB Flash, 8 MB PSRAM)" data-hu="ESP32-S3 N16R8 (16 MB Flash, 8 MB PSRAM)">ESP32-S3 N16R8 (16 MB Flash, 8 MB PSRAM)</li>
+      <li data-en="One CC1101 module suitable for the frequency band you want to use" data-hu="Egy, a használni kívánt frekvenciasávhoz megfelelő CC1101 modul">One CC1101 module suitable for the frequency band you want to use</li>
+      <li data-en="A correctly tuned 433 MHz or 868 MHz antenna" data-hu="Megfelelően hangolt 433 MHz-es vagy 868 MHz-es antenna">A correctly tuned 433 MHz or 868 MHz antenna</li>
+      <li data-en="USB data cable" data-hu="USB adatkábel">USB data cable</li>
+    </ul>
+
+    <div class="install-box install-warn"><strong data-en="Power requirement:" data-hu="Tápellátás:">Power requirement:</strong> <span data-en="Power the CC1101 from a regulated 3.3 V supply only. Never connect the CC1101 VCC pin to 5 V. The CC1101 and ESP32-S3 must share a common GND." data-hu="A CC1101 modult kizárólag stabilizált 3,3 V-ról tápláld. A CC1101 VCC lábát soha ne kösd 5 V-ra. A CC1101 és az ESP32-S3 GND pontja legyen közös.">Power the CC1101 from a regulated 3.3 V supply only. Never connect the CC1101 VCC pin to 5 V. The CC1101 and ESP32-S3 must share a common GND.</span></div>
+
+    <h2 data-en="CC1101 wiring" data-hu="CC1101 bekötés">CC1101 wiring</h2>
+    <table>
+      <thead><tr><th>CC1101</th><th>ESP32-S3 N16R8</th><th data-en="Function" data-hu="Funkció">Function</th></tr></thead>
+      <tbody>
+        <tr><td>VCC</td><td>3.3 V</td><td data-en="Regulated 3.3 V power" data-hu="Stabilizált 3,3 V táp">Regulated 3.3 V power</td></tr>
+        <tr><td>GND</td><td>GND</td><td data-en="Common ground" data-hu="Közös föld">Common ground</td></tr>
+        <tr><td>SCK</td><td>GPIO12</td><td>SPI Clock</td></tr>
+        <tr><td>MISO</td><td>GPIO13</td><td>SPI MISO</td></tr>
+        <tr><td>MOSI</td><td>GPIO11</td><td>SPI MOSI</td></tr>
+        <tr><td>CSN / CS</td><td>GPIO10</td><td>Chip Select</td></tr>
+        <tr><td>GDO0</td><td>GPIO4</td><td>RF GDO0</td></tr>
+        <tr><td>GDO2</td><td>GPIO5</td><td>RF GDO2</td></tr>
+      </tbody>
+    </table>
+    <div class="install-box install-note"><span data-en="v2.0.0-beta.1 uses one active CC1101. A second CC1101 and simultaneous 433 + 868 MHz operation are planned later and are not part of this release." data-hu="A v2.0.0-beta.1 egy aktív CC1101 modult használ. A második CC1101 és az egyidejű 433 + 868 MHz működés későbbi fejlesztés, ennek a kiadásnak még nem része.">v2.0.0-beta.1 uses one active CC1101. A second CC1101 and simultaneous 433 + 868 MHz operation are planned later and are not part of this release.</span></div>
+
+    <h2 data-en="Build and upload with PlatformIO" data-hu="Fordítás és feltöltés PlatformIO-val">Build and upload with PlatformIO</h2>
+    <ol>
+      <li data-en="Download or clone the current ESP32-S3 source and open the project folder in Visual Studio Code with PlatformIO." data-hu="Töltsd le vagy klónozd az aktuális ESP32-S3 forrást, majd nyisd meg a projekt mappáját Visual Studio Code-ban PlatformIO-val.">Download or clone the current ESP32-S3 source and open the project folder in Visual Studio Code with PlatformIO.</li>
+      <li data-en="Verify that the esp32s3 environment is selected in platformio.ini." data-hu="Ellenőrizd, hogy a platformio.ini fájlban az esp32s3 környezet van kiválasztva.">Verify that the esp32s3 environment is selected in platformio.ini.</li>
+      <li data-en="Run Build." data-hu="Futtasd a Build műveletet.">Run Build.</li>
+      <li data-en="Connect the ESP32-S3 by USB and run Upload." data-hu="Csatlakoztasd az ESP32-S3-at USB-n, majd futtasd az Upload műveletet.">Connect the ESP32-S3 by USB and run Upload.</li>
+      <li data-en="Run Upload Filesystem Image when installing the WebUI for the first time or when the data/ files have changed." data-hu="Első telepítéskor, illetve ha a data/ mappa WebUI fájljai változtak, futtasd az Upload Filesystem Image műveletet is.">Run Upload Filesystem Image when installing the WebUI for the first time or when the data/ files have changed.</li>
+    </ol>
+
+    <h2 data-en="Release binaries" data-hu="Kiadási binárisok">Release binaries</h2>
+    <p data-en="The v2.0.0-beta.1 GitHub release provides matching ESP32-S3 firmware and LittleFS images. Keep firmware and LittleFS from the same release together." data-hu="A v2.0.0-beta.1 GitHub kiadás egymáshoz tartozó ESP32-S3 firmware- és LittleFS-képfájlt tartalmaz. Mindig ugyanabból a kiadásból származó firmware-t és LittleFS-t használj együtt.">The v2.0.0-beta.1 GitHub release provides matching ESP32-S3 firmware and LittleFS images. Keep firmware and LittleFS from the same release together.</p>
+    <ul><li><code>OpenRF-Platform-v2.0.0-beta.1-ESP32S3-firmware.bin</code></li><li><code>OpenRF-Platform-v2.0.0-beta.1-ESP32S3-littlefs.bin</code></li></ul>
+    <div class="install-box install-warn"><strong data-en="Important:" data-hu="Fontos:">Important:</strong> <span data-en="Uploading a filesystem image replaces LittleFS and may erase Wi-Fi, MQTT, Analyzer and slot configuration. Create a Backup first when an existing configuration must be preserved." data-hu="A fájlrendszer-kép feltöltése lecseréli a LittleFS tartalmát, ezért a Wi-Fi-, MQTT-, Analyzer- és slotbeállítások elveszhetnek. Ha meglévő konfigurációt szeretnél megtartani, előtte készíts Backupot.">Uploading a filesystem image replaces LittleFS and may erase Wi-Fi, MQTT, Analyzer and slot configuration. Create a Backup first when an existing configuration must be preserved.</span></div>
+
+    <h2 data-en="First start" data-hu="Első beüzemelés">First start</h2>
+    <ol>
+      <li data-en="Power on or restart the ESP32-S3 after flashing." data-hu="A feltöltés után indítsd el vagy indítsd újra az ESP32-S3-at.">Power on or restart the ESP32-S3 after flashing.</li>
+      <li data-en="Connect to the OpenRF-Platform setup Wi-Fi access point." data-hu="Csatlakozz az OpenRF-Platform beállító Wi-Fi hozzáférési ponthoz.">Connect to the OpenRF-Platform setup Wi-Fi access point.</li>
+      <li><span data-en="Open " data-hu="Nyisd meg a ">Open </span><code>192.168.4.1</code><span data-en=" in a browser." data-hu=" címet a böngészőben."> in a browser.</span></li>
+      <li data-en="Configure Wi-Fi and MQTT, then save the settings." data-hu="Állítsd be a Wi-Fi- és MQTT-adatokat, majd mentsd a beállításokat.">Configure Wi-Fi and MQTT, then save the settings.</li>
+      <li data-en="Allow the device to restart and open the IP address assigned by your local network." data-hu="Várd meg az újraindulást, majd nyisd meg a helyi hálózattól kapott IP-címet.">Allow the device to restart and open the IP address assigned by your local network.</li>
+      <li data-en="On the Settings page select 433 MHz (433.920 MHz) or 868 MHz (868.350 MHz) to match your CC1101 module and antenna, then restart if requested." data-hu="A Settings oldalon válaszd ki a CC1101 modulodnak és antennádnak megfelelő 433 MHz (433,920 MHz) vagy 868 MHz (868,350 MHz) sávot, majd szükség esetén indítsd újra az eszközt.">On the Settings page select 433 MHz (433.920 MHz) or 868 MHz (868.350 MHz) to match your CC1101 module and antenna, then restart if requested.</li>
+    </ol>
+
+    <div class="install-box install-note"><strong data-en="Frequency note:" data-hu="Frekvencia megjegyzés:">Frequency note:</strong> <span data-en="Changing the frequency in software does not retune the antenna or RF matching network. Use hardware designed for the selected band." data-hu="A szoftveres frekvenciaváltás nem hangolja át az antennát vagy az RF illesztőhálózatot. A kiválasztott sávhoz megfelelő hardvert használj.">Changing the frequency in software does not retune the antenna or RF matching network. Use hardware designed for the selected band.</span></div>
+
+    <h2 data-en="ESP8266 users" data-hu="ESP8266 felhasználók">ESP8266 users</h2>
+    <p data-en="The original ESP8266 v1.2.0 installation guide is still available unchanged." data-hu="Az eredeti ESP8266 v1.2.0 telepítési útmutató változatlanul elérhető.">The original ESP8266 v1.2.0 installation guide is still available unchanged.</p>
+    <div class="install-actions"><a class="button secondary" href="installation.html" data-en="Open ESP8266 legacy guide" data-hu="ESP8266 legacy útmutató megnyitása">Open ESP8266 legacy guide</a><a class="button primary" href="index.html#downloads" data-en="Downloads" data-hu="Letöltések">Downloads</a></div>
+  </main>
+
+  <footer class="site-footer"><p>© <span id="year"></span> OpenRF Platform</p></footer>
+  <script src="script.js"></script>
+</body>
+</html>
