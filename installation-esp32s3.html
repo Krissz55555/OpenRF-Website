@@ -8,6 +8,7 @@
   <title>SIGVERN RF — ESP32-S3 Installation Guide</title>
   <link rel="icon" href="assets/sigvern-rf-mark.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
+  <script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module"></script>
   <style>
     .install-page{max-width:980px;margin:0 auto;padding:56px 24px 80px}.install-page h1{font-size:clamp(2.2rem,5vw,4rem);margin:.2em 0}.install-page h2{margin-top:46px}.install-page h3{margin-top:28px}.install-lead{font-size:1.15rem;line-height:1.75;max-width:800px}.install-box{border:1px solid rgba(148,163,184,.24);border-radius:18px;padding:20px 22px;margin:24px 0;background:rgba(15,31,50,.55)}.install-note{border-left:4px solid #3ddc97}.install-warn{border-left:4px solid #f5b942}.install-page table{width:100%;border-collapse:collapse;margin:20px 0}.install-page th,.install-page td{text-align:left;padding:12px 14px;border-bottom:1px solid rgba(148,163,184,.22)}.install-page code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}.install-page ol,.install-page ul{line-height:1.8}.install-actions{display:flex;gap:12px;flex-wrap:wrap;margin:28px 0}.back-link{display:inline-block;margin-bottom:22px}
   </style>
@@ -33,6 +34,14 @@
     <span class="section-kicker">ESP32-S3 · v2.0.0-beta.3</span>
     <h1 data-en="ESP32-S3 Installation Guide" data-hu="ESP32-S3 telepítési útmutató">ESP32-S3 Installation Guide</h1>
     <p class="install-lead" data-en="Hardware wiring and first-start instructions for the current SIGVERN RF ESP32-S3 N16R8 reference build. This guide intentionally contains no wiring image: use the pin table below." data-hu="Hardveres bekötési és első beüzemelési útmutató a SIGVERN RF jelenlegi ESP32-S3 N16R8 referencia-verziójához. Ez az útmutató szándékosan nem tartalmaz bekötési képet: az alábbi lábkiosztást használd.">Hardware wiring and first-start instructions for the current SIGVERN RF ESP32-S3 N16R8 reference build. This guide intentionally contains no wiring image: use the pin table below.</p>
+
+    <h2 id="web-install" data-en="Install from the browser" data-hu="Telepítés böngészőből">Install from the browser</h2>
+    <div class="install-box install-note">
+      <p data-en="Connect the ESP32-S3 with a USB data cable, then choose the serial port in the installer. The installer writes the matching v2.0.0-beta.3 firmware and LittleFS images in one step." data-hu="Csatlakoztasd az ESP32-S3-at USB-adatkábellel, majd válaszd ki a soros portot a telepítőben. A telepítő egy lépésben felírja az egymáshoz tartozó v2.0.0-beta.3 firmware- és LittleFS-képfájlt.">Connect the ESP32-S3 with a USB data cable, then choose the serial port in the installer. The installer writes the matching v2.0.0-beta.3 firmware and LittleFS images in one step.</p>
+      <div class="install-actions"><esp-web-install-button manifest="downloads/installer/v2.0.0-beta.3/manifest.json"></esp-web-install-button></div>
+      <p><strong data-en="Before you start:" data-hu="Mielőtt elkezded:">Before you start:</strong> <span data-en="a fresh installation can erase the entire flash. Export a backup first if the device already contains Wi-Fi, MQTT or saved slot data." data-hu="egy új telepítés a teljes flash-t törölheti. Ha az eszközön már van Wi-Fi-, MQTT- vagy mentett slot adat, előtte készíts biztonsági mentést.">a fresh installation can erase the entire flash. Export a backup first if the device already contains Wi-Fi, MQTT or saved slot data.</span></p>
+      <p data-en="Use desktop Chrome, Edge or Firefox. iPhone/iPad browsers cannot use USB serial installation." data-hu="Asztali Chrome-ot, Edge-et vagy Firefoxot használj. iPhone/iPad böngészőből az USB-s telepítés nem működik.">Use desktop Chrome, Edge or Firefox. iPhone/iPad browsers cannot use USB serial installation.</p>
+    </div>
 
     <h2 data-en="Required hardware" data-hu="Szükséges hardver">Required hardware</h2>
     <ul>

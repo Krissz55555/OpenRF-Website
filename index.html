@@ -8,6 +8,7 @@
   <title>SIGVERN RF — Open Source RF Gateway & Automation Platform</title>
   <link rel="icon" href="assets/sigvern-rf-mark.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
+  <script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module"></script>
 </head>
 <body>
   <header class="site-header">
@@ -43,7 +44,7 @@
         </h1>
         <p class="hero-lead" data-en="Build a dual-radio ESP32-S3 RF gateway with 433 and 868 MHz CC1101 modules, dual-core processing, RAW Learn & Replay, RF analysis, MQTT and native Home Assistant integration." data-hu="Építs két rádiós ESP32-S3 RF gatewayt 433 és 868 MHz-es CC1101 modulokkal, kétmagos feldolgozással, RAW tanítással és visszajátszással, RF elemzéssel, MQTT-vel és natív Home Assistant integrációval.">Build a dual-radio ESP32-S3 RF gateway with 433 and 868 MHz CC1101 modules, dual-core processing, RAW Learn & Replay, RF analysis, MQTT and native Home Assistant integration.</p>
         <div class="hero-actions">
-          <a class="button primary" href="#downloads" data-en="Download v2.0.0-beta.3" data-hu="v2.0.0-beta.3 letöltése">Download v2.0.0-beta.3</a>
+          <a class="button primary" href="installation-esp32s3.html#web-install" data-en="Install via USB" data-hu="Telepítés USB-n">Install via USB</a>
           <a class="button secondary" href="installation-esp32s3.html" data-en="Installation Guide" data-hu="Telepítési útmutató">Installation Guide</a>
           <a class="button secondary" href="https://github.com/Krissz55555/SIGVERN-RF" target="_blank" rel="noopener">GitHub ↗</a>
         </div>
@@ -182,6 +183,10 @@
           </div>
           <p data-en="The new dual-core SIGVERN RF generation with 8 MB PSRAM. Firmware and LittleFS must be installed as a matching pair from this release." data-hu="Az SIGVERN RF új, kétmagos generációja 8 MB PSRAM-mal. A firmware és a LittleFS fájlt mindig ebből a kiadásból, egymáshoz tartozó párként telepítsd.">The new dual-core SIGVERN RF generation with 8 MB PSRAM. Firmware and LittleFS must be installed as a matching pair from this release.</p>
           <div class="download-actions">
+            <div class="web-install-action">
+              <esp-web-install-button manifest="downloads/installer/v2.0.0-beta.3/manifest.json"></esp-web-install-button>
+              <small data-en="Recommended: complete USB installation for a new ESP32-S3." data-hu="Ajánlott: teljes USB telepítés új ESP32-S3-hoz.">Recommended: complete USB installation for a new ESP32-S3.</small>
+            </div>
             <a class="button primary" href="https://github.com/Krissz55555/SIGVERN-RF/releases/download/v2.0.0-beta.3/SIGVERN-RF-v2.0.0-beta.3-ESP32S3-firmware.bin" download data-en="ESP32-S3 firmware.bin" data-hu="ESP32-S3 firmware.bin">ESP32-S3 firmware.bin</a>
             <a class="button secondary" href="https://github.com/Krissz55555/SIGVERN-RF/releases/download/v2.0.0-beta.3/SIGVERN-RF-v2.0.0-beta.3-ESP32S3-littlefs.bin" download data-en="ESP32-S3 littlefs.bin" data-hu="ESP32-S3 littlefs.bin">ESP32-S3 littlefs.bin</a>
             <a class="button secondary" href="https://github.com/Krissz55555/SIGVERN-RF/releases/tag/v2.0.0-beta.3" target="_blank" rel="noopener" data-en="View v2.0.0-beta.3 release" data-hu="v2.0.0-beta.3 GitHub kiadás">View v2.0.0-beta.3 release</a>
