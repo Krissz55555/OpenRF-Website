@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>OpenRF Platform - Installation Guide</title>
+<title>SIGVERN RF - Installation Guide</title>
 
 <style>
 body{
@@ -53,10 +53,11 @@ code{
 </head>
 <body>
 
-<h1>Installation Guide</h1>
+<h1>SIGVERN RF Installation Guide</h1>
+<p><strong>Legacy guide:</strong> this page covers ESP8266 v1.2.0, originally released as OpenRF Platform. Current SIGVERN RF releases target ESP32-S3; see the current ESP32-S3 guide for beta.3.</p>
 
 <p>
-Welcome to <strong>OpenRF Platform</strong>. Choose the installation method that best matches your needs.
+Welcome to <strong>SIGVERN RF</strong>. Choose the installation method that best matches your needs.
 </p>
 
 <div class="cards">
@@ -66,7 +67,7 @@ Welcome to <strong>OpenRF Platform</strong>. Choose the installation method that
 
 <p><strong>Best for:</strong> Developers and contributors.</p>
 
-<p><strong>Download:</strong> OpenRF-Platform-v1.2.0.zip</p>
+<p><strong>Download:</strong> SIGVERN RF-Platform-v1.2.0.zip</p>
 
 <ul>
 <li>Modify the source code</li>
@@ -102,7 +103,7 @@ Connect the CC1101 module to the ESP8266 NodeMCU V2 exactly as shown below.
 
 <img
 src="assets/CC1101-wiring.png"
-alt="CC1101 Wiring for OpenRF Platform"
+alt="CC1101 Wiring for SIGVERN RF"
 style="width:100%;max-width:1100px;display:block;margin:20px auto;border:1px solid #ddd;border-radius:10px;">
 
 <div class="box">
@@ -127,7 +128,7 @@ GDO2 is intentionally left unconnected.
 <h3>What is firmware.bin?</h3>
 
 <p>
-<strong>firmware.bin</strong> is the operating software of OpenRF Platform.
+<strong>firmware.bin</strong> is the operating software of SIGVERN RF.
 It contains RF communication, Wi-Fi, MQTT, Home Assistant integration,
 OTA support and all platform features.
 Without this file the device cannot start.
@@ -151,7 +152,7 @@ Without this file the device cannot start.
 
 <div class="box">
 
-Think of <strong>firmware.bin</strong> as the operating system of OpenRF Platform and
+Think of <strong>firmware.bin</strong> as the operating system of SIGVERN RF and
 <strong>littlefs.bin</strong> as the website stored inside the device.
 
 <br><br>
@@ -201,7 +202,7 @@ Using an incorrect LittleFS flash offset may cause the device to boot normally w
 <li>Flash <strong>littlefs.bin</strong>.</li>
 <li>Restart the ESP8266.</li>
 <li>If no Wi-Fi credentials are configured, the device starts in <strong>Access Point (AP)</strong> mode.</li>
-<li>Connect to the <strong>OpenRF Platform</strong> Wi-Fi network.</li>
+<li>Connect to the <strong>SIGVERN RF</strong> Wi-Fi network.</li>
 <li>Open the web interface and complete the initial configuration.</li>
 </ol>
 
@@ -216,7 +217,7 @@ Flash <strong>firmware.bin</strong> +
 
 <br><br>
 
-<strong>Already using OpenRF Platform?</strong><br>
+<strong>Already using SIGVERN RF?</strong><br>
 
 If the release notes mention WebUI, HTML, CSS, JavaScript or LittleFS changes,
 flash <strong>both</strong> files.
@@ -256,14 +257,14 @@ littlefs.bin v1.1.0
 <ul>
 
 <li>
-<strong>I just want to use OpenRF Platform</strong>
+<strong>I just want to use SIGVERN RF</strong>
 → Download <strong>firmware.bin</strong> and
 <strong>littlefs.bin</strong>.
 </li>
 
 <li>
-<strong>I want to develop OpenRF Platform</strong>
-→ Download <strong>OpenRF-Platform-v1.2.0.zip</strong>.
+<strong>I want to develop SIGVERN RF</strong>
+→ Download <strong>SIGVERN RF-Platform-v1.2.0.zip</strong>.
 </li>
 
 </ul>

@@ -1,4 +1,4 @@
-# OpenRF Community Moderation Pack v1.5
+# SIGVERN RF Community Moderation Pack v1.5
 
 Új funkciók:
 - rejtett témák admin nézete és visszaállítása

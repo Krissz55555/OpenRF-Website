@@ -1,4 +1,6 @@
-OpenRF Platform Website v1.4 — Database Edition
+SIGVERN RF Website v1.4 — Database Edition
+
+Rebranded from OpenRF Platform. The current firmware is SIGVERN RF v2.0.0-beta.3 for ESP32-S3; the ESP8266 v1.2.0 material is retained as a legacy guide.
 ================================================
 
 This package upgrades the approved v1.2 Community Hub with a real shared backend.
@@ -34,7 +36,7 @@ The exact Hungarian setup instructions are in DEPLOYMENT-HU.md.
 
 MAIN FILES
 ----------
-index.html                         Main OpenRF website
+index.html                         Main SIGVERN RF website
 community.html                     Community Hub
 community.js                       D1 API client and local fallback
 functions/api/community/           Pages Functions API
@@ -53,7 +55,7 @@ authentication and moderation tools.
 VERSION
 -------
 Website: v1.4 Database Edition
-Firmware presented: OpenRF Platform v1.2.0 Stable
+Current firmware: SIGVERN RF v2.0.0-beta.3 · ESP8266 v1.2.0 remains legacy
 
 
 V1.4 GITHUB EDITION

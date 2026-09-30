@@ -1,6 +1,6 @@
-# OpenRF Platform Website v1.4 – telepítés Cloudflare Pagesre
+# SIGVERN RF weboldal – Cloudflare Pages telepítése
 
-A v1.4 a következőket használja:
+A weboldal a következőket használja:
 
 - Cloudflare Pages – weboldal
 - Pages Functions – API és GitHub OAuth
@@ -34,6 +34,8 @@ npx wrangler d1 migrations apply openrf-community --remote
 
 Ez a meglévő v1.3 táblák mellé létrehozza a felhasználó- és munkamenet-táblákat is.
 
+A beállított `openrfplatform.com` domain jelenleg változatlan marad; az esetleges domainváltás külön DNS/OAuth/Cloudflare átállás.
+
 ## 4. GitHub OAuth App létrehozása
 
 GitHubon nyisd meg:
@@ -42,7 +44,7 @@ GitHubon nyisd meg:
 
 Javasolt értékek:
 
-- Application name: `OpenRF Platform Community`
+- Application name: `SIGVERN RF Community`
 - Homepage URL: `https://openrfplatform.com`
 - Authorization callback URL: `https://openrfplatform.com/api/auth/github/callback`
 

@@ -23,7 +23,7 @@
 
     if (state.user) {
       el('userAvatar').src =
-        state.user.avatar_url || 'assets/openrf-platform-mark.png';
+        state.user.avatar_url || 'assets/sigvern-rf-mark.svg';
 
       el('userName').textContent =
         state.user.display_name || state.user.login;
